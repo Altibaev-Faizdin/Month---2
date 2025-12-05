@@ -11,20 +11,15 @@ class Person:
         f' по профессии {self.occupation}, {education_status}.')
 
 
-
-
 class Classmate(Person):
-    def __init__(self, name, birth_date, occupation, higher_education, group_name):
+    def __init__(self, name, group_name, friend_of, birth_date, occupation, higher_education):
         super().__init__(name,birth_date, occupation, higher_education)
         self.group_name = group_name
-
+        self.friend_of = friend_of
 
     def introduce(self):
-        print(f' Здарова меня зовут {self.name}, я на группе {self.group_name}.'
-              f' Я родился {self.birth_date} и я {self.occupation}.')
-
-
-
+        print(f"Здарова меня зовут {self.name}, я из группы {self.group_name}. "
+              f"Я одногруппник {self.friend_of}, я родился {self.birth_date} и я {self.occupation}")
 
 
 class Friend(Person):
@@ -40,38 +35,50 @@ class Friend(Person):
 
 
 
+class BestFriend(Friend):
+    def __init__(self, name, friend_of, birth_date, hobby, higher_education, occupation, shared_memory):
+        super().__init__(name, friend_of, birth_date, hobby, higher_education, occupation)
+        self.shared_memory = shared_memory
+
+    def introduce(self):
+        super().introduce()
+        print(f"Наше лучшее воспоминание: {self.shared_memory}")
+
+
+    def introduce(self):
+        super().introduce()
+        print(f"Наше лучшее воспоминание: {self.shared_memory}")
 
 
 
-person1 = Person("Алинур", '12.05.2000', occupation = "Медик", higher_education = True)
-person2 = Person("Акылай",  '03.11.1998', occupation = "Программист", higher_education = False)
-person3 = Person("Артур", '25.08.2002', occupation = "Инжинер", higher_education = True)
-
-print("Person1:", person1.name, person1.birth_date, person1.occupation, person1.higher_education)
-print("Person2:", person2.name, person2.birth_date, person2.occupation, person2.higher_education)
-print("Person3:", person3.name, person3.birth_date, person3.occupation, person3.higher_education)
-
-
-print("\nПредс-е объектов:")
-person1.introduce()
-person2.introduce()
-person3.introduce()
-
-
-print("\nДочерний класс, подкласс:")
-Classmate1 = Classmate("Бектур", "05.12.2005", "Студент", False, "ИСТ 1-22")
-Classmate2 = Classmate("Алыбек", "03.06.2006", "Студент", False, "ПИ 3-34")
+print("\nДочерний класс, подкласс(Classmate):")
+Classmate1 = Classmate("Бектур", "ИСТ 1-22", "Путина", "05.12.2005",  "Студент", False)
+Classmate2 = Classmate("Алыбек", "ПИ 3-34", "Трампа", "03.06.2006", "Студент", False)
 Classmate1.introduce()
 Classmate2.introduce()
 
 
-print("\nДочерний класс, подкласс:")
+print("\nДочерний класс, подкласс(Friend):")
 Friend1 = Friend("Саша",   "Виктора", "01.10.2002", "программирования", True, "Программистом")
 Friend2 = Friend("Андрей",  "Алинура", "21.07.1997", "валейбол", True, "Сантехником")
 Friend1.introduce()
 Friend2.introduce()
 
 
+
+print("\nДоп задание 1:")
+poeple = [Person("Алинур", '12.05.2000', occupation = "Медик", higher_education = True),
+Classmate("Бектур", "ИСТ 1-22", "Путина", "05.12.2005",  "Студент", False),
+Friend("Андрей",  "Алинура", "21.07.1997", "валейбол", True, "Сантехником")]
+for person in poeple:
+    person.introduce()
+    print("#-----------#")
+
+
+print("\nДоп задание 2:")
+best = BestFriend("Эртай", "Алмаз", "10.09.2000",
+"играть на гитаре", True, "Разработчиком","Познакомились на хакатоне")
+best.introduce()
 
 
 
