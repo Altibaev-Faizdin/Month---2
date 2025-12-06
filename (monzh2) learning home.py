@@ -696,3 +696,123 @@
 # agent.complete_mission()
 # agent.get_mission_count()
 # agent.set_real_name(agent.real_name)
+
+
+
+
+
+
+                                    #HOMEWRK A-2:
+# class Animal:
+#     def __init__(self, __energy):
+#         self.__energy = 100
+#
+#     def get_energy(self):
+#         return self.__energy
+#
+#
+#     def sound(self):
+#         print('MYAW')
+#
+#
+# Cat = Animal('')
+# print(Cat.get_energy())
+# Cat.sound()
+
+
+
+                                        #HOMEWRK A-3:
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+#
+# class Cat(Animal):
+#     def sound(self):
+#         print("MYAW")
+#
+
+# class Dog(Animal):
+#     def sound(self):
+#         print("WOW")
+#
+#
+# class Cow(Animal):
+#     def sound(self):
+#         print("MUU")
+#
+# Elza = Cat("")
+# Elza.sound()
+#
+# Reks = Dog("")
+# Reks.sound()
+#
+# Marusya = Cow("")
+# Marusya.sound()
+#
+# animals = [Cat(''), Dog(''), Cow('')]
+#
+# for animal in animals:
+#     animal.sound()
+
+
+
+
+                                        #HOMEWRK A-4:
+# class Calculator:
+#     def calculate(self, a, b):
+#         return 0
+#
+# class Adder(Calculator):
+#     def calculate(self, a, b):
+#         return a + b
+#
+#
+# class Multiplier(Calculator):
+#     def calculate(self, a, b):
+#         return a * b
+#
+# class Subtracter(Calculator):
+#     def calculate(self, a, b):
+#         return a - b
+#
+#
+#
+# calculators = [Adder(), Multiplier(), Subtracter()]
+#
+#
+# for calc in calculators:
+#     print(calc.calculate(10, 5))
+
+
+
+
+                                        #Homework A-5:
+# class BankAccount:
+#     def __init__(self):
+#         self.__balance = 0      # приватный атрибут
+#
+#     def deposit(self, amount):
+#         self.__balance += amount
+#         print(f"Пополнение: +{amount}")
+#
+#     def withdraw(self, amount):
+#         if amount <= self.__balance:
+#             self.__balance -= amount
+#             print(f"Снятие: -{amount}")
+#         else:
+#             print("❌ Недостаточно средств!")
+#
+#     def get_balance(self):
+#         return self.__balance
+#
+# # Проверка
+# account = BankAccount()
+#
+# account.deposit(1000)
+# print("Баланс:", account.get_balance())
+#
+# account.withdraw(500)
+# print("Баланс:", account.get_balance())
+#
+# account.withdraw(700)
+# print("Баланс:", account.get_balance())
