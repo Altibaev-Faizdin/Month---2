@@ -1,5 +1,6 @@
 from datetime import datetime, date
 
+
 class Person:
     def __init__(self, name, birth_date, occupation, higher_education):
         self.name = name
@@ -7,21 +8,17 @@ class Person:
         self.__occupation = occupation
         self.__higher_education = higher_education
 
-
     @property
     def occupation(self):
         return self.__occupation
-
 
     @occupation.setter
     def occupation(self, value):
         self.__occupation = value
 
-
     @property
     def higher_education(self):
         return self.__higher_education
-
 
     @property
     def age(self):
@@ -32,24 +29,22 @@ class Person:
             years -= 1
         return years
 
-
-
     def introduce(self):
-        edu = "Есть высшее образования" if self.higher_education else "Нет высшее образования"
+        edu = "Есть высшее образование" if self.higher_education else "Нет высшего образования"
         print(f"Привет, меня зовут {self.name}. "
-              f"Моя профессия {self.occupation}. "
+              f"Моя профессия — {self.occupation}. "
               f"{edu}.")
+
 
 class Classmate(Person):
     def __init__(self, name, birth_date, occupation, higher_education, group_name):
         super().__init__(name, birth_date, occupation, higher_education)
         self.group_name = group_name
 
-
     def introduce(self):
-        edu =  edu = "Есть высшее образования" if self.higher_education else "Нет высшее образования"
+        edu = "Есть высшее образование" if self.higher_education else "Нет высшего образования"
         print(f"Привет, меня зовут {self.name}. "
-              f"Моя профессия {self.occupation}. "
+              f"Моя профессия — {self.occupation}. "
               f"Я учился с Айсулуу в группе {self.group_name}. "
               f"{edu}.")
 
@@ -60,25 +55,21 @@ class Friend(Person):
         self.hobby = hobby
 
     def introduce(self):
-        edu = "У меня есть высшее образование" if self.higher_education else "У меня нет высшее образование"
+        edu = "У меня есть высшее образование" if self.higher_education else "У меня нет высшего образования"
         print(f"Привет, меня зовут {self.name}. "
-              f"Моя профессия {self.occupation}. "
-              f"Мое хобби {self.hobby}. "
+              f"Моя профессия — {self.occupation}. "
+              f"Моё хобби — {self.hobby}. "
               f"{edu}.")
 
 
+print("\nДочерний класс, подкласс (Classmate):")
+classmate1 = Classmate("Бектур", "05.12.2005", "Студент", False, "ИСТ 1-22")
+classmate1.introduce()
+print("Возраст:", classmate1.age)
 
 
-print("\nДочерний класс, подкласс(Classmate):")
-Classmate1 = Classmate("Бектур", "05.12.2005",
-"Студент", False,  "ИСТ 1-22")
-Classmate1.introduce()
-print(Classmate1.age)
+print("\nДочерний класс, подкласс (Friend):")
+friend1 = Friend("Саша", "01.10.2002", "Программист", True, "программирование")
+friend1.introduce()
+print("Возраст:", friend1.age)
 
-
-
-print("\nДочерний класс, подкласс(Friend):")
-Friend1 = Friend("Саша",   "01.10.2002",
-"Программирования", True, "программирования" )
-Friend1.introduce()
-print(Friend1.age)
