@@ -1337,6 +1337,49 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
+                                #Homework B-2:
+
+class Walker:
+    def __init__(self, legs):
+        self.legs = legs
+
+
+    def walk(self):
+        print(f'Я хожу на {self.legs} ногах')
+
+
+
+class Speaker:
+    def __init__(self, language):
+        self.language = language
+
+    def say_hello(self):
+        print(f'Я могу говорить на {self.language}')
+
+
+
+class Thinker:
+    def __init__(self, iq):
+        self.iq = iq
+
+    def solve_problem(self):
+        print(f'Мой iq {self.iq}')
+
+
+
+class SuperRobot(Walker, Speaker, Thinker):
+    def __init__(self, legs, language, iq):
+        super().__init__(self)
+        self.legs = legs
+        self.language = language
+        self.iq = iq
+
+robot = SuperRobot(legs=2, language='English', iq=195)
+robot.walk()
+robot.say_hello()
+robot.solve_problem()
+
+
 
 
 
