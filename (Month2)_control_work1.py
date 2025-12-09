@@ -1,58 +1,55 @@
 class Animal:
     def __init__(self, name, age):
-        self.__name = name
-        self.__age = age
+        self._name = name        # защищённые атрибуты
+        self._age = age
 
+    @property
+    def name(self):
+        return self._name
 
+    @name.setter
+    def name(self, new_name):
+        self._name = new_name
 
-    def get_name(self):
-        return self.__name
+    # --- property для age ---
+    @property
+    def age(self):
+        return self._age
 
-
-    def get_age(self):
-        return self.__age
-
-
-    def set_name(self, new_name):
-        self.__name = new_name
-
-
-    def set_age(self, new_age):
+    @age.setter
+    def age(self, new_age):
         if new_age >= 0:
-            self.__age = new_age
+            self._age = new_age
         else:
             print("Возраст не может быть отрицательным!")
 
-
     def make_sound(self):
-        return "Some generic animal sound: "
+        return "Some generic animal sound"
+
 
 class Dog(Animal):
     def make_sound(self):
-        return "woof woof"
+        return "Woof! Woof!"
 
 
 class Cat(Animal):
     def make_sound(self):
-        return "meow meow"
+        return "Meow! Meow!"
 
 
 dog1 = Dog("Reks", 2)
 cat1 = Cat("Karen", 1)
 
+print(f"{dog1.name}, {dog1.age} лет: {dog1.make_sound()}")
+print(f"{cat1.name}, {cat1.age} лет: {cat1.make_sound()}")
 
-print(dog1.get_name(), dog1.get_age(), "лет", ":", dog1.make_sound())
-print(cat1.get_name(), cat1.get_age(), "лет", ":", cat1.make_sound())
+print("\nПосле изменений:")
 
+dog1.name = "Pumba"
+dog1.age = 3
+print(f"{dog1.name}, {dog1.age} лет: {dog1.make_sound()}")
 
-
-
-print('\nПосле изменений: ')
-dog1.set_name("Pumba")
-dog1.set_age(3)
-print(dog1.get_name(), dog1.get_age(), "лет", ":", dog1.make_sound())
-
-cat1.set_name('Elza')
-cat1.set_age(4)
-print(cat1.get_name(), cat1.get_age(), "лет", ":", cat1.make_sound())
+cat1.name = "Elza"
+cat1.age = 4
+print(f"{cat1.name}, {cat1.age} лет: {cat1.make_sound()}")
 
