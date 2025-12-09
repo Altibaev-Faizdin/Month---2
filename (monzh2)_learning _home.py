@@ -1240,61 +1240,61 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
                                         #Homework A-2:
-# class User:
-#     count = 0
-#     def __init__(self, name, email):
-#         self.name = name
-#         self.email = email
-#         User.count += 1
-#
-#
-#     def __str__(self):
-#         return f'Имя: {self.name}, Email: {self.email}.'
-#
-#     @staticmethod
-#     def is_email_valid(email):
-#         return '@' in email
-#
-#
-#     @classmethod
-#     def get_count(cls):
-#         return cls.count
-#
-#
-#
-# class Boss(User):
-#     count = 0
-#     def __init__(self, name):
-#         super().__init__(name, "weenox62@gmail.com")
-#
-#
-# class Moderator(User):
-#     count = 0
-#     def __init__(self, name):
-#         super().__init__(name, "weenzox62gmail.com")
-#
-#
-# Admin1 = User('Faizdin', 'faizaltibaev@gmail.com')
-# Admin2 = User('Alinur', 'Aliabdulaev@gmail.com')
-# print(Admin1)
-# print(Admin2)
-#
-#
-# print(Admin1.is_email_valid('fazaltibaev21@gmail.com'))
-# print(Admin1.is_email_valid('faizaltibaev21gmail.com'))
-# print(Admin1.get_count())
-# print(Admin2.get_count())
-#
-#
-# Boss1 = Boss('Sasha')
-# print(Boss1)
-# print(Boss1.is_email_valid('weenoxgmailgmail.com'))
-# print(Boss1.get_count())
-#
-# Mod1 = Moderator('Misha')
-# print(Mod1)
-# print(Mod1.is_email_valid('weenzox@gmailgmail.com'))
-# print(Mod1.get_count())
+class User:
+    count = 0
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        User.count += 1
+
+
+    def __str__(self):
+        return f'Имя: {self.name}, Email: {self.email}.'
+
+    @staticmethod
+    def is_email_valid(email):
+        return '@' in email
+
+
+    @classmethod
+    def get_count(cls):
+        return cls.count
+
+
+
+class Boss(User):
+    count = 0
+    def __init__(self, name):
+        super().__init__(name, "weenox62@gmail.com")
+
+
+class Moderator(User):
+    count = 0
+    def __init__(self, name):
+        super().__init__(name, "weenzox62gmail.com")
+
+
+Admin1 = User('Faizdin', 'faizaltibaev@gmail.com')
+Admin2 = User('Alinur', 'Aliabdulaev@gmail.com')
+print(Admin1)
+print(Admin2)
+
+
+print(Admin1.is_email_valid('fazaltibaev21@gmail.com'))
+print(Admin1.is_email_valid('faizaltibaev21gmail.com'))
+print(Admin1.get_count())
+print(Admin2.get_count())
+
+
+Boss1 = Boss('Sasha')
+print(Boss1)
+print(Boss1.is_email_valid('weenoxgmailgmail.com'))
+print(Boss1.get_count())
+
+Mod1 = Moderator('Misha')
+print(Mod1)
+print(Mod1.is_email_valid('weenzox@gmailgmail.com'))
+print(Mod1.get_count())
 
                                 #Homework B-1:
 # import random
@@ -1329,56 +1329,56 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 # print(r1)
 # print(r2)
 # print(r3)
-
-# --- Общая статистика ---
+#
+# #--- Общая статистика ---
 # print("Всего роботов создано:", RobotFactory.robot_count)
-
-
-
+#
+#
+#
 
 
                                 #Homework B-2:
-
-class Walker:
-    def __init__(self, legs):
-        self.legs = legs
-
-
-    def walk(self):
-        print(f'Я хожу на {self.legs} ногах')
-
-
-
-class Speaker:
-    def __init__(self, language):
-        self.language = language
-
-    def say_hello(self):
-        print(f'Я могу говорить на {self.language}')
-
-
-
-class Thinker:
-    def __init__(self, iq):
-        self.iq = iq
-
-    def solve_problem(self):
-        print(f'Мой iq {self.iq}')
-
-
-
-class SuperRobot(Walker, Speaker, Thinker):
-    def __init__(self, legs, language, iq):
-        super().__init__(self)
-        self.legs = legs
-        self.language = language
-        self.iq = iq
-
-robot = SuperRobot(legs=2, language='English', iq=195)
-robot.walk()
-robot.say_hello()
-robot.solve_problem()
-
+#
+# class Walker:
+#     def __init__(self, legs):
+#         self.legs = legs
+#
+#
+#     def walk(self):
+#         print(f'Я хожу на {self.legs} ногах')
+#
+#
+#
+# class Speaker:
+#     def __init__(self, language):
+#         self.language = language
+#
+#     def say_hello(self):
+#         print(f'Я могу говорить на {self.language}')
+#
+#
+#
+# class Thinker:
+#     def __init__(self, iq):
+#         self.iq = iq
+#
+#     def solve_problem(self):
+#         print(f'Мой iq {self.iq}')
+#
+#
+#
+# class SuperRobot(Walker, Speaker, Thinker):
+#     def __init__(self, legs, language, iq):
+#         super().__init__(self)
+#         self.legs = legs
+#         self.language = language
+#         self.iq = iq
+#
+# robot = SuperRobot(legs=2, language='English', iq=195)
+# robot.walk()
+# robot.say_hello()
+# robot.solve_problem()
+#
 
 
 
