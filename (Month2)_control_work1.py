@@ -1,6 +1,6 @@
 class Animal:
     def __init__(self, name, age):
-        self._name = name        # защищённые атрибуты
+        self._name = name
         self._age = age
 
     @property
@@ -11,7 +11,7 @@ class Animal:
     def name(self, new_name):
         self._name = new_name
 
-    # --- property для age ---
+
     @property
     def age(self):
         return self._age
