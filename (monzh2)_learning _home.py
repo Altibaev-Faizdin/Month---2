@@ -1240,61 +1240,61 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
                                         #Homework A-2:
-class User:
-    count = 0
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
-        User.count += 1
-
-
-    def __str__(self):
-        return f'Имя: {self.name}, Email: {self.email}.'
-
-    @staticmethod
-    def is_email_valid(email):
-        return '@' in email
-
-
-    @classmethod
-    def get_count(cls):
-        return cls.count
-
-
-
-class Boss(User):
-    count = 0
-    def __init__(self, name):
-        super().__init__(name, "weenox62@gmail.com")
-
-
-class Moderator(User):
-    count = 0
-    def __init__(self, name):
-        super().__init__(name, "weenzox62gmail.com")
-
-
-Admin1 = User('Faizdin', 'faizaltibaev@gmail.com')
-Admin2 = User('Alinur', 'Aliabdulaev@gmail.com')
-print(Admin1)
-print(Admin2)
-
-
-print(Admin1.is_email_valid('fazaltibaev21@gmail.com'))
-print(Admin1.is_email_valid('faizaltibaev21gmail.com'))
-print(Admin1.get_count())
-print(Admin2.get_count())
-
-
-Boss1 = Boss('Sasha')
-print(Boss1)
-print(Boss1.is_email_valid('weenoxgmailgmail.com'))
-print(Boss1.get_count())
-
-Mod1 = Moderator('Misha')
-print(Mod1)
-print(Mod1.is_email_valid('weenzox@gmailgmail.com'))
-print(Mod1.get_count())
+# class User:
+#     count = 0
+#     def __init__(self, name, email):
+#         self.name = name
+#         self.email = email
+#         User.count += 1
+#
+#
+#     def __str__(self):
+#         return f'Имя: {self.name}, Email: {self.email}.'
+#
+#     @staticmethod
+#     def is_email_valid(email):
+#         return '@' in email
+#
+#
+#     @classmethod
+#     def get_count(cls):
+#         return cls.count
+#
+#
+#
+# class Boss(User):
+#     count = 0
+#     def __init__(self, name):
+#         super().__init__(name, "weenox62@gmail.com")
+#
+#
+# class Moderator(User):
+#     count = 0
+#     def __init__(self, name):
+#         super().__init__(name, "weenzox62gmail.com")
+#
+#
+# Admin1 = User('Faizdin', 'faizaltibaev@gmail.com')
+# Admin2 = User('Alinur', 'Aliabdulaev@gmail.com')
+# print(Admin1)
+# print(Admin2)
+#
+#
+# print(Admin1.is_email_valid('fazaltibaev21@gmail.com'))
+# print(Admin1.is_email_valid('faizaltibaev21gmail.com'))
+# print(Admin1.get_count())
+# print(Admin2.get_count())
+#
+#
+# Boss1 = Boss('Sasha')
+# print(Boss1)
+# print(Boss1.is_email_valid('weenoxgmailgmail.com'))
+# print(Boss1.get_count())
+#
+# Mod1 = Moderator('Misha')
+# print(Mod1)
+# print(Mod1.is_email_valid('weenzox@gmailgmail.com'))
+# print(Mod1.get_count())
 
                                 #Homework B-1:
 # import random
@@ -1383,3 +1383,887 @@ print(Mod1.get_count())
 
 
 
+                                    #Homework C-1:
+# class A:
+#     def do_action(self):
+#         print("do action")
+#
+# class B:
+#     def do_action(self):
+#         print("do action")
+#
+# class C(A,B):
+#     pass
+#
+# class D(B,A):
+#     pass
+#
+# c = C()
+# d = D()
+# c.do_action()
+# d.do_action()
+#
+# print("C MRO: ", C.__mro__)
+# print("D MRO: ", D.__mro__)
+
+
+
+                                    #Homework C-2:
+# class BattleRobot:
+#     def __init__(self, name, health, damage):
+#         self.name = name
+#         self.health = health
+#         self.damage = damage
+#
+#     def __gt__(self, other):
+#         if not  isinstance(other, BattleRobot):
+#             return NotImplemented
+#         return self.damage > other.damage
+#
+#     def __ge__(self, other):
+#         if not isinstance(other, BattleRobot):
+#             return NotImplemented
+#         return self.health >= other.health
+#
+#     def __bool__(self):
+#         return self.health > 0
+#
+#     def __str__(self):
+#         return f'{self.name} (Health: {self.health}, Damage: {self.damage})'
+#
+#
+#
+# robot1 = BattleRobot('Robot1', 100, 85)
+# robot2 = BattleRobot('Robot2', 90, 90)
+# robot3 = BattleRobot('Robot3', 60, 100)
+#
+#
+# print(f'{robot1.name} < {robot2.name}?', robot1 > robot2)
+# print(f'{robot1.name} >= {robot2.name}?', robot1 >= robot2)
+#
+# robots = [robot1, robot2, robot3]
+# for robot in robots:
+#     print(f'{robot} is alive? {bool(robot)}')
+
+
+
+
+
+#---------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------
+
+
+
+
+
+            # ⭐ УРОК 4 — Использование ООП в проекте ⭐
+            # Это практический урок. Ты научишься применять всё, что изучил на уроках 1–3.
+            # Здесь мы создадим реальный мини-проект на Python, полностью на ООП.
+            # Урок 4: Большой проект — Космическая станция управления роботами
+            # Объясняю, как для ребёнка:
+
+# Представь, что ты главный инженер на космической станции.
+# У тебя есть разные типы роботов, база данных, система логирования и командный центр.
+# Мы создадим полноценную систему управления, используя ВСЁ, что изучили!
+
+
+
+                            #A-1: Архитектура проекта
+# Мы создадим несколько модулей(файлов):
+#
+# robots.py — классы  роботов
+#
+# station.py — класс космической станции
+#
+# logger.py — система логирования
+#
+# main.py — главная  программа
+#
+# robots.py — Базовые классы  роботов python
+
+# import random
+# from datetime import datetime
+#
+# class BaseRobot:
+#     """Базовый класс для всех роботов"""
+#
+#     total_robots = 0  # Атрибут класса
+#
+#     def __init__(self, name, model):
+#         self.name = name
+#         self.model = model
+#         self._energy = 100  # Защищённый атрибут
+#         self.__serial = self._generate_serial()  # Приватный
+#         self.is_active = True
+#         self.created_at = datetime.now()
+#         BaseRobot.total_robots += 1
+#
+#     def _generate_serial(self):
+#         """Защищённый метод генерации серийного номера"""
+#         return f"SR-{random.randint(1000, 9999)}-{self.model}"
+#
+#     # Геттер для приватного атрибута
+#     def get_serial(self):
+#         return self.__serial
+#
+#     # Магические методы
+#     def __str__(self):
+#         return f"{self.name} ({self.model})"
+#
+#     def __repr__(self):
+#         return f"BaseRobot('{self.name}', '{self.model}')"
+#
+#     def __eq__(self, other):
+#         return self.model == other.model
+#
+#     def __add__(self, other):
+#         """Объединение роботов в группу"""
+#         return RobotGroup([self, other])
+#
+#     # Статический метод
+#     @staticmethod
+#     def validate_name(name):
+#         return len(name) >= 2 and name.isalnum()
+#
+#     # Классовый метод
+#     @classmethod
+#     def get_total_count(cls):
+#         return f"Всего создано роботов: {cls.total_robots}"
+#
+#
+# robots.py — Специализированные роботы(наследование)
+#
+# class ResearchRobot(BaseRobot):
+#     """Робот-исследователь"""
+#
+#     def __init__(self, name, model, lab_type):
+#         super().__init__(name, model)
+#         self.lab_type = lab_type
+#         self._research_data = []
+#
+#     def conduct_research(self, topic):
+#         if self._energy >= 20:
+#             result = f"Исследование '{topic}' завершено"
+#             self._research_data.append(result)
+#             self._energy -= 20
+#             return result
+#         return "Недостаточно энергии!"
+#
+#     def get_research_count(self):
+#         return len(self._research_data)
+#
+#     # Переопределяем магический метод
+#     def __str__(self):
+#         return f"Исследователь {self.name} ({self.lab_type} лаборатория)"
+#
+#
+# class RepairRobot(BaseRobot):
+#     """Робот-ремонтник"""
+#
+#     def __init__(self, name, model, tools):
+#         super().__init__(name, model)
+#         self.tools = tools
+#         self.repairs_done = 0
+#
+#     def repair(self, target_robot):
+#         if self._energy >= 30 and target_robot.is_active == False:
+#             target_robot.is_active = True
+#             self.repairs_done += 1
+#             self._energy -= 30
+#             return f"Отремонтировал {target_robot.name}"
+#         return "Невозможно выполнить ремонт"
+#
+#     def __str__(self):
+#         return f"Ремонтник {self.name} | Инструменты: {', '.join(self.tools)}"
+#
+#
+# class SecurityRobot(BaseRobot):
+#     """Робот-охранник"""
+#
+#     def __init__(self, name, model, weapon):
+#         super().__init__(name, model)
+#         self.weapon = weapon
+#         self.threats_neutralized = 0
+#
+#     def patrol(self, sector):
+#         if self._energy >= 15:
+#             threats = random.choice([0, 0, 0, 1, 2])  # Случайные угрозы
+#             self.threats_neutralized += threats
+#             self._energy -= 15
+#             return f"Патрулирование {sector}: нейтрализовано угроз: {threats}"
+#         return "Недостаточно энергии для патруля"
+#
+#     # Магический метод для сравнения по эффективности
+#     def __gt__(self, other):
+#         return self.threats_neutralized > other.threats_neutralized
+#
+#
+# robots.py — Множественное наследование и композиция
+#
+# class RobotGroup:
+#     """Группа роботов (композиция)"""
+#
+#     def __init__(self, robots):
+#         self.robots = robots
+#
+#     def __len__(self):
+#         return len(self.robots)
+#
+#     def __getitem__(self, index):
+#         return self.robots[index]
+#
+#     def total_energy(self):
+#         return sum(r._energy for r in self.robots)
+#
+#     def activate_all(self):
+#         for robot in self.robots:
+#             robot.is_active = True
+#
+#
+# # Робот с множественным наследованием
+# class UniversalRobot(ResearchRobot, RepairRobot):
+#     """Универсальный робот-исследователь-ремонтник"""
+#
+#     def __init__(self, name, model, lab_type, tools):
+#         # Вызываем конструкторы обоих родителей
+#         ResearchRobot.__init__(self, name, model, lab_type)
+#         RepairRobot.__init__(self, name, model, tools)
+#         self.mode = "исследователь"  # По умолчанию
+#
+#     def switch_mode(self, new_mode):
+#         if new_mode in ["исследователь", "ремонтник"]:
+#             self.mode = new_mode
+#             return f"Режим изменён на: {new_mode}"
+#         return "Неизвестный режим"
+#
+#     # Полиморфизм: метод действует в зависимости от режима
+#     def perform_action(self, target=None):
+#         if self.mode == "исследователь":
+#             return self.conduct_research("автоматическое исследование")
+#         elif self.mode == "ремонтник" and target:
+#             return self.repair(target)
+#         return "Нет цели для действия"
+#
+#
+# logger.py — Система логирования
+#
+#
+# class RobotLogger:
+#     """Логгер для записи действий роботов"""
+#
+#     def __init__(self, filename="robot_log.txt"):
+#         self.filename = filename
+#         self._clear_log()  # Очищаем старый лог при создании
+#
+#     def _clear_log(self):
+#         with open(self.filename, 'w', encoding='utf-8') as f:
+#             f.write("=== Лог космической станции ===\n")
+#
+#     def log(self, message, robot=None):
+#         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#         if robot:
+#             log_entry = f"[{timestamp}] {robot}: {message}\n"
+#         else:
+#             log_entry = f"[{timestamp}] СИСТЕМА: {message}\n"
+#
+#         print(log_entry.strip())  # Выводим в консоль
+#         with open(self.filename, 'a', encoding='utf-8') as f:
+#             f.write(log_entry)  # Записываем в файл
+#
+#     @staticmethod
+#     def read_log(filename="robot_log.txt"):
+#         try:
+#             with open(filename, 'r', encoding='utf-8') as f:
+#                 return f.read()
+#         except FileNotFoundError:
+#             return "Лог-файл не найден"
+#
+#
+# station.py — Космическая станция
+#
+#
+# class SpaceStation:
+#     """Главный управляющий класс космической станции"""
+#
+#     def __init__(self, name):
+#         self.name = name
+#         self.robots = []
+#         self.logger = RobotLogger()
+#         self.logger.log(f"Инициализация станции '{name}'")
+#
+#     def add_robot(self, robot):
+#         if robot not in self.robots:
+#             self.robots.append(robot)
+#             self.logger.log(f"Добавлен робот: {robot}", robot)
+#             return True
+#         return False
+#
+#     def remove_robot(self, robot):
+#         if robot in self.robots:
+#             self.robots.remove(robot)
+#             self.logger.log(f"Удалён робот: {robot}", robot)
+#             return True
+#         return False
+#
+#     def find_robot_by_name(self, name):
+#         for robot in self.robots:
+#             if robot.name == name:
+#                 return robot
+#         return None
+#
+#     def get_active_robots(self):
+#         return [r for r in self.robots if r.is_active]
+#
+#     def get_inactive_robots(self):
+#         return [r for r in self.robots if not r.is_active]
+#
+#     def group_by_type(self):
+#         """Группировка роботов по типу (полиморфизм)"""
+#         groups = {}
+#         for robot in self.robots:
+#             robot_type = type(robot).__name__
+#             if robot_type not in groups:
+#                 groups[robot_type] = []
+#             groups[robot_type].append(robot)
+#         return groups
+#
+#     def daily_report(self):
+#         """Ежедневный отчёт (использует много разных методов)"""
+#         report = []
+#         report.append(f"\n=== Отчёт станции '{self.name}' ===")
+#         report.append(f"Всего роботов: {len(self.robots)}")
+#         report.append(f"Активных: {len(self.get_active_robots())}")
+#         report.append(f"Неактивных: {len(self.get_inactive_robots())}")
+#
+#         # Группировка по типам
+#         groups = self.group_by_type()
+#         for robot_type, robots_list in groups.items():
+#             report.append(f"\n{robot_type}: {len(robots_list)} шт.")
+#             for robot in robots_list:
+#                 report.append(f"  - {robot}")
+#
+#         # Общая статистика
+#         report.append(f"\n{BaseRobot.get_total_count()}")
+#
+#         return "\n".join(report)
+#
+#     def emergency_shutdown(self):
+#         """Аварийное отключение всех роботов"""
+#         for robot in self.robots:
+#             robot.is_active = False
+#         self.logger.log("АВАРИЙНОЕ ОТКЛЮЧЕНИЕ! Все роботы деактивированы")
+#
+#     def __str__(self):
+#         return f"Космическая станция '{self.name}' ({len(self.robots)} роботов)"
+#
+#
+# main.py — Главная программа
+
+# from robots import *
+# from station import SpaceStation
+# from logger import RobotLogger
+#
+#
+# def main():
+#     # Создаём космическую станцию
+#     print("=" * 50)
+#     print("ЗАПУСК СИСТЕМЫ КОСМИЧЕСКОЙ СТАНЦИИ")
+#     print("=" * 50)
+#
+#     station = SpaceStation("Альфа Центавра")
+#
+#     # Создаём разных роботов
+#     researcher1 = ResearchRobot("Кьюри", "RR-100", "биологическая")
+#     researcher2 = ResearchRobot("Галилей", "RR-200", "физическая")
+#
+#     repair_bot = RepairRobot("Вулкан", "RP-500", ["паяльник", "отвёртка", "сканер"])
+#
+#     guard1 = SecurityRobot("Сторож", "SG-700", "лазер")
+#     guard2 = SecurityRobot("Бульдог", "SG-800", "сеть")
+#
+#     # Универсальный робот с множественным наследованием
+#     universal = UniversalRobot("Мульти", "UR-900", "химическая", ["анализатор", "манипулятор"])
+#
+#     # Добавляем роботов на станцию
+#     for robot in [researcher1, researcher2, repair_bot, guard1, guard2, universal]:
+#         station.add_robot(robot)
+#
+#     print("\n" + "=" * 50)
+#     print("ТЕСТИРОВАНИЕ ВОЗМОЖНОСТЕЙ СИСТЕМЫ")
+#     print("=" * 50)
+#
+#     # Тестируем исследователей
+#     print("\n1. Исследовательская деятельность:")
+#     for i in range(3):
+#         print(f"  Попытка {i + 1}: {researcher1.conduct_research(f'Эксперимент {i + 1}')}")
+#
+#     # Тестируем охранников
+#     print("\n2. Патрулирование:")
+#     sectors = ["Сектор A", "Сектор B", "Сектор C"]
+#     for sector in sectors:
+#         print(f"  {sector}: {guard1.patrol(sector)}")
+#
+#     # Сравнение охранников (магический метод __gt__)
+#     print(f"\n3. Сравнение охранников:")
+#     print(f"  {guard1} > {guard2}? {guard1 > guard2}")
+#     print(f"  Угроз нейтрализовано: {guard1.name}={guard1.threats_neutralized}, "
+#           f"{guard2.name}={guard2.threats_neutralized}")
+#
+#     # Универсальный робот
+#     print("\n4. Универсальный робот:")
+#     print(f"  {universal}")
+#     print(f"  Режим по умолчанию: {universal.mode}")
+#     print(f"  Смена режима: {universal.switch_mode('ремонтник')}")
+#
+#     # Делаем одного робота неактивным для ремонта
+#     researcher2.is_active = False
+#     print(f"  {universal.perform_action(researcher2)}")
+#
+#     # Создаём группу роботов (композиция)
+#     print("\n5. Группа роботов:")
+#     group = guard1 + guard2  # Используем магический метод __add__
+#     print(f"  Создана группа из {len(group)} роботов")
+#     print(f"  Общая энергия группы: {group.total_energy()}")
+#
+#     # Ежедневный отчёт
+#     print("\n" + "=" * 50)
+#     print("ЕЖЕДНЕВНЫЙ ОТЧЁТ СТАНЦИИ")
+#     print("=" * 50)
+#     print(station.daily_report())
+#
+#     # Проверяем валидацию имени (статический метод)
+#     print("\n6. Валидация имён:")
+#     test_names = ["R2D2", "X", "123", "BB-8"]
+#     for name in test_names:
+#         is_valid = BaseRobot.validate_name(name)
+#         print(f"  '{name}': {'валидно' if is_valid else 'невалидно'}")
+#
+#     # Читаем лог
+#     print("\n" + "=" * 50)
+#     print("ПОСЛЕДНИЕ ЗАПИСИ В ЛОГЕ")
+#     print("=" * 50)
+#     log_content = RobotLogger.read_log()
+#     # Показываем последние 10 строк
+#     last_lines = log_content.split('\n')[-10:]
+#     for line in last_lines:
+#         if line:  # Пропускаем пустые строки
+#             print(f"  {line}")
+#
+#     print("\n" + "=" * 50)
+#     print("СИСТЕМА УСПЕШНО ПРОТЕСТИРОВАНА")
+#     print("=" * 50)
+#
+#
+# if __name__ == "__main__":
+#     main()
+
+
+
+
+
+
+                            #⭐A-2. Структура нашего проекта
+# В этом уроке ты применишь:
+# классы
+# наследование
+# инкапсуляцию
+# полиморфизм
+# магические методы
+# статические и классовые методы
+# Это уже уровень Junior–Middle Developer.
+# Проект будет простой, но полностью “как в реальности”.
+#
+# Мы создадим:
+# 1) Product — Товар
+# 2) FoodProduct и TechProduct — наследники товара
+# 3) Store — Магазин
+# 4) User — клиент
+# 5) Admin — админ (наследник User)
+
+
+
+
+
+
+                                #⭐B-1. Создаём класс Product
+# class Product:
+#     product_count = 0
+#
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.__price = price       # инкапсуляция
+#         Product.product_count += 1
+#
+#     def get_price(self):
+#         return self.__price
+#
+#     def __str__(self):
+#         return f"{self.name} — {self.__price} сом"
+
+
+
+                            #⭐B-2. Наследование (полиморфизм)
+# FoodProduct — еда
+# class FoodProduct(Product):
+#     def __init__(self, name, price, calories):
+#         super().__init__(name, price)
+#         self.calories = calories
+#
+#     def info(self):
+#         print(f"{self.name}: {self.calories} калорий")
+#
+# TechProduct — техника
+# class TechProduct(Product):
+#     def __init__(self, name, price, warranty):
+#         super().__init__(name, price)
+#         self.warranty = warranty
+#
+#     def info(self):
+#         print(f"{self.name}: гарантия {self.warranty} месяцев")
+#
+
+
+
+                        # ⭐C-1. Класс Store (магазин)
+# class Store:
+#     def __init__(self, name):
+#         self.name = name
+#         self.products = []
+#
+#     def add_product(self, product):
+#         self.products.append(product)
+#
+#     def show_products(self):
+#         for p in self.products:
+#             print(p)   # работает __str__
+#
+#     def find_by_name(self, name):
+#         for p in self.products:
+#             if p.name.lower() == name.lower():
+#                 return p
+#         return None
+
+
+
+                #⭐ C-2. Создаём класс User (клиент магазина)
+# class User:
+#     user_count = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         User.user_count += 1
+#
+#     def __str__(self):
+#         return f"Пользователь: {self.name}"
+#
+#     @classmethod
+#     def get_count(cls):
+#         return cls.user_count
+
+
+
+                    #⭐ D-1. Admin — наследник User
+# class Admin(User):
+#     def remove_product(self, store, product_name):
+#         store.products = [p for p in store.products if p.name != product_name]
+#         print(f"Товар {product_name} удалён админом {self.name}")
+
+
+
+
+                    # ⭐D-2. Используем всё это в мини проекте
+# store = Store("AU Market")
+#
+# # Создаём товары
+# bread = FoodProduct("Хлеб", 25, 300)
+# milk = FoodProduct("Молоко", 55, 600)
+# phone = TechProduct("Samsung A12", 9000, 12)
+#
+# # Добавляем товары в магазин
+# store.add_product(bread)
+# store.add_product(milk)
+# store.add_product(phone)
+#
+# # Покупатель
+# u1 = User("Файиздин")
+#
+# # Админ
+# adm = Admin("Абдухалил")
+#
+# # Показываем товары
+# store.show_products()
+#
+# # Ищем товар
+# found = store.find_by_name("Хлеб")
+# print("\nНайден:", found)
+#
+# # Админ удаляет товар
+# adm.remove_product(store, "Молоко")
+#
+# # Товары после удаления
+# print("\nПосле удаления:")
+# store.show_products()
+
+
+
+                            # ⭐ Что ты изучил в Уроке 4?
+                            # ✔ наследование
+                            # ✔ инкапсуляция
+                            # ✔ полиморфизм
+                            # ✔ магические методы
+                            # ✔ классовые методы
+                            # ✔ работу с несколькими классами в одном проекте
+                            # ✔ взаимодействие объектов
+                            # ✔ поведение как в настоящем приложении
+                            # Это уже реальный мини-backend проект.
+
+                        # Что мы применили в проекте:
+                        # Классы и объекты — BaseRobot, ResearchRobot, SpaceStation
+                        # Наследование — ResearchRobot → BaseRobot
+                        # Инкапсуляция — _energy, __serial, геттеры
+                        # Полиморфизм — group_by_type(), perform_action()
+                        # Магические методы — __str__, __eq__, __add__, __gt__
+                        # Статические методы — validate_name(), read_log()
+                        # Классовые методы — get_total_count()
+                        # Множественное наследование — UniversalRobot
+                        # Композиция — RobotGroup
+                        # Модульность — разделение на файлы
+
+
+                        #🎯 ЗАДАНИЕ УРОКА 4 (ОБЯЗАТЕЛЬНО)
+
+                            #Homework A-1:
+# class Transport:
+#     def __init__(self, name, speed):
+#         self.name = name
+#         self.__speed = speed
+#
+#     def get_speed(self):
+#         return self.__speed
+#
+#     def move(self):
+#         print("Moving Car")
+#
+# class Car(Transport):
+#     def move(self):
+#         print(f"Машина {self.name} едет по дороге со скоростью {self.get_speed()} км/ч")
+#
+# class Plane(Transport):
+#     def move(self):
+#         print(f"Самолёт {self.name} летит по воздуху со скоростью {self.get_speed()} км/ч")
+#
+#
+#
+# class Garage:
+#     def __init__(self):
+#         self.transports = []
+#
+#     def add_transport(self, transport):
+#         self.transports.append(transport)
+#         print(f'{transport.name} Добавлен гараж')
+#
+#     def show_all(self):
+#         print("Все транспорты на гараже")
+#         for t in self.transports:
+#             print(f'{t.name}')
+#
+#
+#     def find_by_name(self, name):
+#         for t in self.transports:
+#             if t.name == name:
+#                 return t
+#         return None
+#
+#
+#
+# garage = Garage()
+#
+# car1 = Car('Toyota', 150)
+# car2 = Car('Tesla', 200)
+# plane1 = Plane('B-2', 2000)
+# garage.add_transport(car1)
+# garage.add_transport(car2)
+# garage.add_transport(plane1)
+#
+# garage.show_all()
+#
+# found = garage.find_by_name('Toyota')
+# if found:
+#     print(f'Найден транспорт: {found.name}')
+#     found.move()
+#
+# for t in garage.transports:
+#     t.move()
+
+
+
+
+                                #Homework A-2:
+# import json
+# import os
+# import time
+# from functools import lru_cache
+# from datetime import datetime
+#
+# # ======================
+# # Логирование с ротацией
+# # ======================
+# LOG_FILE = "station_log.json"
+# LOG_BACKUP_DIR = "log_backup"
+#
+# os.makedirs(LOG_BACKUP_DIR, exist_ok=True)
+#
+# class Logger:
+#     LEVELS = ["INFO", "WARNING", "ERROR"]
+#
+#     @staticmethod
+#     def log(message, level="INFO"):
+#         if level not in Logger.LEVELS:
+#             level = "INFO"
+#         log_entry = {
+#             "time": datetime.now().isoformat(),
+#             "level": level,
+#             "message": message
+#         }
+#         # Чтение существующего лога
+#         logs = []
+#         if os.path.exists(LOG_FILE):
+#             with open(LOG_FILE, "r") as f:
+#                 try:
+#                     logs = json.load(f)
+#                 except:
+#                     logs = []
+#
+#         # Ротация если лог слишком большой
+#         if len(logs) >= 100:
+#             timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+#             os.rename(LOG_FILE, f"{LOG_BACKUP_DIR}/station_log_{timestamp}.json")
+#             logs = []
+#
+#         logs.append(log_entry)
+#         with open(LOG_FILE, "w") as f:
+#             json.dump(logs, f, indent=4)
+#
+#         print(f"[{level}] {message}")
+#
+#
+# # ======================
+# # Базовый робот
+# # ======================
+# class Robot:
+#     def __init__(self, name, energy=100):
+#         if not name.isalnum():
+#             raise ValueError("Имя робота должно содержать только буквы и цифры")
+#         self.name = name
+#         self.energy = energy
+#
+#     def perform_action(self, cost=10):
+#         if self.energy <= 0:
+#             Logger.log(f"{self.name} не может выполнять действия, энергия кончилась", "WARNING")
+#             return False
+#         self.energy -= cost
+#         Logger.log(f"{self.name} выполняет действие, осталось энергии: {self.energy}", "INFO")
+#         return True
+#
+#     @property
+#     def is_active(self):
+#         return self.energy > 0
+#
+# # ======================
+# # Специализированные роботы
+# # ======================
+# class TransportRobot(Robot):
+#     def __init__(self, name, energy=100, capacity=50):
+#         super().__init__(name, energy)
+#         self.capacity = capacity
+#
+#     def transport(self, cargo):
+#         if self.perform_action(cost=5):
+#             Logger.log(f"{self.name} транспортирует {cargo} кг", "INFO")
+#
+#
+# class MedicalRobot(Robot):
+#     def diagnose(self, patient):
+#         if self.perform_action(cost=5):
+#             Logger.log(f"{self.name} диагностирует {patient}", "INFO")
+#
+#     def treat(self, patient):
+#         if self.perform_action(cost=10):
+#             Logger.log(f"{self.name} лечит {patient}", "INFO")
+#
+#
+# # ======================
+# # Станция роботов
+# # ======================
+# class RobotStation:
+#     def __init__(self):
+#         self.robots = []
+#
+#     def add_robot(self, robot):
+#         self.robots.append(robot)
+#         Logger.log(f"Добавлен робот {robot.name}", "INFO")
+#
+#     def remove_robot(self, name):
+#         self.robots = [r for r in self.robots if r.name != name]
+#         Logger.log(f"Удалён робот {name}", "INFO")
+#
+#     def report(self):
+#         print("\n=== Отчёт по станции ===")
+#         for r in self.robots:
+#             print(f"{r.name} | Энергия: {r.energy} | Активен: {r.is_active}")
+#         print("========================\n")
+#
+#     def simulate_crisis(self):
+#         Logger.log("Симуляция кризисной ситуации", "WARNING")
+#         for r in self.robots:
+#             r.energy = max(0, r.energy - 20)
+#
+#     def optimize_energy(self):
+#         Logger.log("Оптимизация энергии между роботами", "INFO")
+#         total_energy = sum(r.energy for r in self.robots)
+#         avg_energy = total_energy // len(self.robots) if self.robots else 0
+#         for r in self.robots:
+#             r.energy = avg_energy
+#
+#     @property
+#     def efficiency(self):
+#         if not self.robots:
+#             return 0
+#         active_count = sum(1 for r in self.robots if r.is_active)
+#         return active_count / len(self.robots)
+#
+# def run_tests():
+#     print("\n=== Тестирование ===")
+#     t1 = TransportRobot("T1", capacity=100)
+#     m1 = MedicalRobot("M1")
+#
+#     assert t1.capacity == 100
+#     t1.transport(50)
+#     m1.diagnose("Пациент")
+#     m1.treat("Пациент")
+#
+#     try:
+#         Robot("!!!")
+#     except ValueError:
+#         print("Тест имени робота пройден")
+#
+#     # Граничный случай энергии
+#     r = Robot("LowEnergy", energy=0)
+#     assert not r.perform_action()
+#
+#     # Эффективность станции
+#     station = RobotStation()
+#     station.add_robot(t1)
+#     station.add_robot(m1)
+#     assert station.efficiency == 1.0
+#     station.simulate_crisis()
+#     assert station.efficiency < 1.0
+#
+#     print("Все тесты пройдены!")
+#
+#
+# # ======================
+# # Запуск
+# # ======================
+# if __name__ == "__main__":
+#     run_tests()
