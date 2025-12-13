@@ -1,9 +1,7 @@
-
-
 class Contact:
     def __init__(self, name, phone_number, id):
         self.name = name
-        self.phone_number = phone_number
+        self.phone = phone_number
         self.id = id
 
     @staticmethod
@@ -21,31 +19,40 @@ class ContactList:
     def add_contact(cls, name, phone_number):
         if Contact.validate_phone_number(phone_number):
             cls.last_id += 1
-            id = cls.last_id
-            contact = Contact(name, phone_number, id)
+            contact = Contact(name, phone_number, cls.last_id)
             cls.all_contacts.append(contact)
-            print(f"Contact {name} added successfully.")
+            print(f"Контакт '{name}' добавлен с id={contact.id}")
         else:
-            print("Invalid phone number. It must be 10 digits long.")
+            raise ValueError(f"Невозможно добавить контакт '{name}': неверный номер")
 
     @classmethod
-    def remove_contact(cls, id):
+    def remove_contact(cls, contact_id):
         for contact in cls.all_contacts:
-            if contact.id == id:
+            if contact.id == contact_id:
                 cls.all_contacts.remove(contact)
-                print(f"Contact with id {id} removed successfully.")
-            return f"Contact with id {id} removed successfully."
+                print(f"Контакт с id={contact_id} удалён")
+                return
+        print(f"Контакт с id={contact_id} не найден")
 
 
-# пример использования
-print(ContactList.last_id)  # 0
+print(ContactList.all_contacts)  # []
+ContactList.add_contact("Доналд Трамп", "0700100200")
+ContactList.add_contact("Илон Маск", "0500123456")
 
-ContactList.add_contact("Вася Пупкин", "0700100200")
-ContactList.add_contact("Виктор Цой", "0500123456")
-print(ContactList.last_id)  # 2
 
-ContactList.remove_contact(1)
-
+print("\nСписок контактов после добавления:")
 for contact in ContactList.all_contacts:
-    print(contact.name, contact.phone_number, contact.id)
-    # Виктор Цой 0500123456 2
+    print(contact.name, contact.phone, contact.id)
+
+print(ContactList.last_id)
+
+print('\n--------')
+ContactList.remove_contact(1)
+ContactList.remove_contact(7)
+
+print("\nСписок контактов после удаления:")
+for contact in ContactList.all_contacts:
+    print(contact.name, contact.phone, contact.id)
+
+print('\nЕсли что тут ошибка выдаёт, потому что тут цифра не содержит =! 10, если что этот коммент Алинур писал:')
+ContactList.add_contact("Cristiano Ronaldo", "55512384")
