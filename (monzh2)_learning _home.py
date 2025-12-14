@@ -1,3 +1,4 @@
+from tabnanny import process_tokens
 from tkinter.font import names  #Урок A-1: Волшебный мир Объектов. Создаём своих первых роботов!
 
 # Представь, что ты волшебник, который может создавать любые предметы. Допустим, ты хочешь создать армию роботов.
@@ -2337,17 +2338,205 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
+                                        #Homework B-2:
+# class Product:
+#     def __init__(self, name, price, category):
+#         self.name = name
+#         self.price = price
+#         self.category = category
+#
+#     def info(self):
+#         print(f'Товар: {self.name}\nКатегория: {self.category}\nЦена: {self.price} сом')
+#
+# class PhoneCase(Product):
+#     def __init__(self, name, price, category, material):
+#         super().__init__(name, price, category)
+#         self.material = material
+#
+#     def info(self):
+#         print(f'Чехол: {self.name}\nКатегория: {self.category}\nМатериал: {self.material}\nЦена: {self.price}')
+#
+#
+# class PowerBank(Product):
+#     def __init__(self, name, price, category, power):
+#         super().__init__(name, price, category)
+#         self.power = power
+#
+#     def info(self):
+#         print(f'PowerBank: {self.name}\nКатегория: {self.category}\nКиловатт: {self.power}\nЦена: {self.price}')
+#
+
+# product1 = PhoneCase("Силиконовый чехол", 1200, "чехол", "силикон")
+# product2 = PowerBank('Hoco23',2500,'powerbank',30000)
+# product3 = Product('Airpods3', 2000, 'eairphone')
+#
+# product1.info()
+# product2.info()
+# product3.info()
 
 
 
+                                                #Homework C-1:
+# class Track:
+#     def __init__(self, title, author, duration):
+#         self.title = title
+#         self.author = author
+#         self.duration = duration
+#
+#     def show(self):
+#         print(f'Название трека: {self.title}\nИсполнитель: {self.author}\nДлительность: {self.duration}')
+#
+#
+# class Playlist:
+#     track_list = []
+#
+#     def add_track(self, track):
+#             self.track_list.append(track)
+#
+#
+#     def remove_track(self, title):
+#         for track in self.track_list:
+#             if track.title == title:
+#                 self.track_list.remove(track)
+#                 print(f"Трек '{title}' удалён")
+#                 return
+#             print(f"Трек '{title}' не найден")
+#
+#
+#     def show(self):
+#         if not self.track_list:
+#             print("Плейлист пуст")
+#             return
+#
+#         print("Плейлист:")
+#         print("=" * 30)
+#         for track in self.track_list:
+#             track.show()
+#
+#
+# # Создание треков
+# track1 = Track("Shape of You", "Ed Sheeran", "3:53")
+# track2 = Track("Blinding Lights", "The Weeknd", "3:20")
+# track3 = Track("Believer", "Imagine Dragons", "3:24")
+#
+# # Создание плейлиста
+# playlist = Playlist()
+#
+# # Добавление треков в плейлист
+# playlist.add_track(track1)
+# playlist.add_track(track2)
+# playlist.add_track(track3)
+#
+# # Вывод всех треков
+# playlist.show()
 
 
 
+                                                 #Homework C-2:
+# class Client:
+#     def __init__(self, name, balance):
+#         self.name = name
+#         self.balance = balance
+#
+#     def add_money(self, amount):
+#         if amount > 0:
+#             self.balance += amount
+#             print(f"{self.name} пополнил счёт на {amount}")
+#         else:
+#             print("Сумма пополнения должна быть больше 0")
+#
+#
+#     def spend_money(self, amount):
+#         if amount <= 0:
+#             print("Сумма списания должна быть больше 0")
+#             return
+#
+#         if amount <= self.balance:
+#             self.balance -= amount
+#             print(f"{self.name} потратил {amount}")
+#         else:
+#             print("Недостаточно средств")
+#
+#
+#     def info(self):
+#         print(f"Name: {self.name}\nBalance: {self.balance}")
+#
+# class VIPClient(Client):
+#     def __init__(self, name, balance, cashback):
+#         super().__init__(name, balance)
+#         self.cashback = cashback
+#
+#
+#     def spend_money(self, amount):
+#         if amount <= 0:
+#             print("Сумма списания должна быть больше 0")
+#             return
+#
+#         if amount <= self.balance:
+#             self.balance -= amount
+#             cashback_amount = amount * self.cashback / 100
+#             self.balance += cashback_amount
+#             print(f"{self.name} потратил {amount}")
+#             print(f"Кэшбэк: {cashback_amount}")
+#         else:
+#             print("Недостаточно средств")
+#
+#
+# client = Client("Иван", 1000)
+# vip_client = VIPClient("Алексей", 1000, 5)
+#
+# client.info()
+# vip_client.info()
+#
+# client.add_money(500)
+# vip_client.add_money(500)
+#
+# client.spend_money(1000)
+# vip_client.spend_money(1000)
+#
+# client.info()
+# vip_client.info()
 
 
 
-
-
+                                            #Homework C-3:
+# class Clothes:
+#     def __init__(self, size, price, type):
+#         self.size = size
+#         self.price = price
+#         self.type = type
+#
+#     def describe(self):
+#         print(f'Clothes size: {self.size}\nPrice: {self.price}\nType: {self.type}')
+#
+# class DiscountClothes(Clothes):
+#     def __init__(self, size, price, type, discount_percent):
+#         super().__init__(size, price, type)
+#         self.discount_percent = discount_percent
+#
+#     def final_price(self):
+#         discount_amount = self.price * self.discount_percent / 100
+#         final_price = self.price - discount_amount
+#         return final_price
+#
+# tshirt = Clothes("M", 2000, "Футболка")
+# pants = Clothes("L", 3500, "Штаны")
+# jacket = Clothes("XL", 5000, "Куртка")
+#
+# # Вывод информации о товарах
+# tshirt.describe()
+# pants.describe()
+# jacket.describe()
+#
+# # Создание товаров со скидкой
+# discount_tshirt = DiscountClothes("M", 2000, "Футболка", 20)
+# discount_pants = DiscountClothes("L", 3500, "Штаны", 15)
+# discount_jacket = DiscountClothes("XL", 5000, "Куртка", 10)
+#
+# # Вывод финальной цены со скидкой
+# print(f"Финальная цена {discount_tshirt.type}: {discount_tshirt.final_price()} сом")
+# print(f"Финальная цена {discount_pants.type}: {discount_pants.final_price()} сом")
+# print(f"Финальная цена {discount_jacket.type}: {discount_jacket.final_price()} сом")
 
 
 
