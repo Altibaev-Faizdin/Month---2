@@ -2542,6 +2542,256 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
+                                        #Homework C-4
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def sound(self):
+#         pass
+#
+# class Dog(Animal):
+#     def __init__(self, name):
+#         Animal.__init__(self, name)
+#
+#     def sound(self):
+#         print(f"{self.name}: woof, woof, woof")
+#
+# class Cat(Animal):
+#     def __init__(self, name):
+#         Animal.__init__(self, name)
+#
+#     def sound(self):
+#         print(f"{self.name}: meow, meow, meow")
+#
+# class Cow(Animal):
+#     def __init__(self, name):
+#         Animal.__init__(self, name)
+#
+#     def sound(self):
+#         print(f"{self.name}: myy, myy, myy")
+#
+# print('\nDOG:')
+# rek = Dog('Rek')
+# rek.sound()
+#
+# print('\nCAT:')
+# eliza = Cat('Eliza')
+# eliza.sound()
+#
+# print('\nCOW:')
+# mariya = Cow('Mariya')
+# mariya.sound()
+
+
+
+                                    #Homework C-5:
+# class BaseRobot:
+#     def __init__(self, name, energy):
+#         self.name = name
+#         self.energy = energy
+#
+#     def use_energy(self, amount):
+#         if self.energy >= amount:
+#             self.energy -= amount
+#             return True
+#         return False
+#
+#     def __str__(self):
+#         return f"Робот {self.name}, энергия: {self.energy}"
+#
+# class ChefRobot(BaseRobot):
+#     def __init__(self, name, energy, specialty):
+#         super().__init__(name, energy)
+#         self.specialty = specialty
+#         self.recipes_known = []
+#         self.dishes_cooked = 0
+#
+#
+#     def learn_recipe(self, recipe_name):
+#         if recipe_name not in self.recipes_known:
+#             self.recipes_known.append(recipe_name)
+#             print(f"{self.name} выучил рецепт: {recipe_name}")
+#         else:
+#             print(f"{self.name} уже знает рецепт: {recipe_name}")
+#
+#     def cook_dish(self, recipe_name):
+#         if recipe_name not in self.recipes_known:
+#             print(f"{self.name} не знает рецепт '{recipe_name}'")
+#             return
+#
+#         if self.use_energy(10):
+#             self.dishes_cooked += 1
+#             print(f"{self.name} приготовил блюдо '{recipe_name}'")
+#         else:
+#             print(f"{self.name} не хватает энергии для готовки")
+#
+#
+#     def get_menu(self):
+#         return self.recipes_known
+#
+#
+#     def __str__(self):
+#         return (
+#             f"👨‍🍳 Робот-повар: {self.name}\n"
+#             f"Специализация: {self.specialty}\n"
+#             f"Энергия: {self.energy}\n"
+#             f"Известные рецепты: {len(self.recipes_known)}\n"
+#             f"Приготовлено блюд: {self.dishes_cooked}\n"
+#         )
+#
+#     # ===== ТЕСТИРОВАНИЕ =====
+#
+# chef1 = ChefRobot("ChefBot-A", 50, "десерты")
+# chef2 = ChefRobot("ChefBot-B", 30, "суши")
+#
+# chef1.learn_recipe("Тирамису")
+# chef1.learn_recipe("Чизкейк")
+# chef2.learn_recipe("Роллы")
+# chef2.learn_recipe("Суши")
+#
+# chef1.cook_dish("Тирамису")
+# chef1.cook_dish("Чизкейк")
+#
+# chef2.cook_dish("Суши")
+# chef2.cook_dish("Пицца")  # неизвестный рецепт
+#
+# print("\nМеню ChefBot-A:", chef1.get_menu())
+# print("Меню ChefBot-B:", chef2.get_menu())
+#
+# print("\n--- Информация о роботах ---")
+# print(chef1)
+# print(chef2)
+#
+
+
+
+
+
+
+                                            #Homework C-6:
+# # ===== Базовый робот =====
+# class BaseRobot:
+#     def __init__(self, name, energy, is_active=True):
+#         self.name = name
+#         self.energy = energy
+#         self.is_active = is_active
+#
+#     def __str__(self):
+#         status = "активен" if self.is_active else "сломался"
+#         return f"🤖 {self.name} | Энергия: {self.energy} | Статус: {status}"
+#
+# class RepairSystem:
+#     def __init__(self):
+#         self.__repair_queue = []
+#
+#
+#     def add_to_queue(self, robot):
+#         if not robot.is_active:
+#             self.__repair_queue.append(robot)
+#             print(f"{robot.name} добавлен в очередь на ремонт")
+#         else:
+#             print(f"{robot.name} активен — ремонт не нужен")
+#
+#
+#     def repair_next(self):
+#         if not self.__repair_queue:
+#             print("Очередь ремонта пуста")
+#             return
+#
+#         robot = self.__repair_queue.pop(0)
+#         robot.is_active = True
+#         robot.energy += robot.energy * 0.5
+#         print(f"{robot.name} успешно отремонтирован")
+#
+#
+#     def get_queue_length(self):
+#         return len(self.__repair_queue)
+#
+#     def clear_queue(self):
+#         self.__repair_queue.clear()
+#         print("Очередь ремонта очищена")
+#
+#
+#
+# robot1 = BaseRobot("Alpha", 40, False)
+# robot2 = BaseRobot("Beta", 60, False)
+# robot3 = BaseRobot("Gamma", 80, True)
+#
+# repair_system = RepairSystem()
+#
+# repair_system.add_to_queue(robot1)
+# repair_system.add_to_queue(robot2)
+# repair_system.add_to_queue(robot3)  # активный, не добавится
+#
+# print("\nДлина очереди:", repair_system.get_queue_length())
+#
+# repair_system.repair_next()
+# repair_system.repair_next()
+# repair_system.repair_next()  # очередь пуста
+#
+# print("\nСостояние роботов после ремонта:")
+# print(robot1)
+# print(robot2)
+# print(robot3)
+
+
+
+
+                        #Homework C-7:
+# class Car:
+#     def move(self):
+#         return "Еду по дороге"
+#
+# class Plane:
+#     def move(self):
+#         return "Лечу в небе"
+#
+# class Boat:
+#     def move(self):
+#         return "Плыву по воде"
+#
+#
+# class TransformerRobot(Car, Plane, Boat):
+#     def __init__(self):
+#         self.current_form = "car"
+#         self.history = []
+#
+#     def transform_to(self, form_name):
+#         self.current_form = form_name
+#         self.history.append(self.current_form)
+#
+#     def move(self):
+#         if self.current_form == "car":
+#             return Car.move(self)
+#         elif self.current_form == "plane":
+#             return Plane.move(self)
+#         elif self.current_form == "boat":
+#             return Boat.move(self)
+#
+#     def __call__(self):
+#         print(f"Я сейчас в форме: {self.current_form}")
+#
+#     def __getitem__(self, index):
+#         return self.history[index]
+#
+#     def __iter__(self):          # ✅ ВНУТРИ КЛАССА
+#         return iter(self.history)
+#
+#
+# robot = TransformerRobot()
+#
+# robot.transform_to("car")
+# robot.transform_to("plane")
+# robot.transform_to("boat")
+#
+# robot()              # __call__
+# print(robot[0])      # __getitem__
+#
+# for form in robot:   # __iter__
+#     print(form)
+#
+# print(robot.move())  # зависит от current_form
 
 
 
@@ -2549,3 +2799,684 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
+
+
+
+
+
+
+
+
+
+#----------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+               # 🧠 Урок 5 — Виртуальная среда, модули Python, свои модули, pip и Git
+                #Урок 5: Организация проекта, Виртуальные среды и Контроль версий
+
+# Объясняю, как для ребёнка:
+# Представь, что ты художник. У тебя:
+# Разные картины (проекты) — их нужно хранить отдельно, чтобы краски не смешивались (виртуальные среды)
+# Краски из магазина (внешние библиотеки) — их можно купить и использовать (установка модулей)
+# Свои авторские краски (собственные модули) — ты их сам создал
+# Фотографии процесса (Git) — чтобы видеть, как менялась картина, и возвращаться к старым версиям
+
+                            #A-1: Виртуальные среды (Virtual Environments)
+# Зачем нужны? Чтобы изолировать зависимости разных проектов.
+# Аналогия: У тебя два рецепта:
+# Рецепт 1: нужен сахар
+# Рецепт 2: сахар НЕ нужен
+# Если положишь сахар на общую полку — он будет доступен для обоих рецептов.
+# Виртуальная среда — это отдельная полка для каждого рецепта.
+# Создание виртуальной среды:
+# bash
+# # В командной строке (терминале)
+#
+# # 1. Переходим в папку проекта
+# cd C:/Users/ТвоеИмя/my_project
+#
+# # 2. Создаём виртуальную среду
+# python -m venv venv  # Создаст папку 'venv' с изолированным Python
+#
+# # 3. Активируем виртуальную среду
+# # Для Windows:
+# venv\Scripts\activate
+# # Для Mac/Linux:
+# source venv/bin/activate
+#
+# # Теперь в начале строки появится (venv) - значит среда активирована
+# (venv) C:/Users/ТвоеИмя/my_project>
+#
+# # 4. Деактивация среды
+# deactivate
+# Что внутри папки venv?
+# text
+# venv/
+# ├── Scripts/      # Исполняемые файлы (activate, python.exe)
+# ├── Lib/          # Установленные библиотеки (только для этого проекта)
+# └── Include/      # Заголовочные файлы
+
+
+
+                    #🔥A-2. Виртуальная среда (venv) — объяснение как ребёнку
+
+# Представь, что Python — это кухня.
+# А виртуальная среда — отдельная маленькая кухня, где лежат только те продукты, которые нужны для конкретного блюда.
+#
+# 👉 Почему это важно?
+# Потому что:
+# один проект может использовать библиотеку v1.0
+# а другой — ту же библиотеку, но v5.0
+# И они не должны мешать друг другу.
+# Поэтому мы создаём маленькую личную кухню → виртуальную среду.
+#
+# ✔️ Как создать виртуальную среду в Windows
+# Открой терминал/PowerShell:
+# python -m venv venv
+# Появится папка venv — это твоя маленькая кухня.
+#
+# ✔️ Как её включить:
+# venv\Scripts\activate
+# После активации ты увидишь:
+# (venv)
+# Это как индикатор — ты внутри своей маленькой кухни.
+#
+# ✔️ Как выключить:
+# deactivate
+
+
+
+                                            #B-1: Встроенные модули Python
+# Python уже имеет много полезных модулей "из коробки". Это как инструменты в твоём рюкзаке.
+# Примеры полезных встроенных модулей:
+# # 1. Модуль os - работа с операционной системой
+# import os
+#
+# # Узнать текущую папку
+# print("Текущая папка:", os.getcwd())
+#
+# # Создать новую папку
+# os.makedirs("my_folder", exist_ok=True)
+#
+# # Проверить, существует ли файл
+# if os.path.exists("robots.py"):
+#     print("Файл robots.py существует!")
+#
+# # Список файлов в папке
+# files = os.listdir(".")
+# print("Файлы в папке:", files)
+#
+# # 2. Модуль sys - работа с интерпретатором Python
+# import sys
+#
+# # Пути, где Python ищет модули
+# print("Пути поиска модулей:", sys.path)
+#
+# # Аргументы командной строки
+# print("Аргументы:", sys.argv)
+#
+# # Версия Python
+# print("Версия Python:", sys.version)
+#
+# # 3. Модуль math - математические функции
+# import math
+#
+# print("Квадратный корень из 16:", math.sqrt(16))
+# print("Число π:", math.pi)
+# print("Синус 90 градусов:", math.sin(math.radians(90)))
+#
+# # 4. Модуль datetime - работа с датой и временем
+# from datetime import datetime, timedelta
+#
+# now = datetime.now()
+# print("Сейчас:", now)
+# print("Год:", now.year)
+# print("Месяц:", now.month)
+# print("День:", now.day)
+#
+# # Завтра
+# tomorrow = now + timedelta(days=1)
+# print("Завтра:", tomorrow)
+#
+# # Форматирование даты
+# print("Форматированная дата:", now.strftime("%d.%m.%Y %H:%M:%S"))
+#
+# # 5. Модуль random - случайные числа
+# import random
+#
+# # Случайное число от 1 до 10
+# print("Случайное число:", random.randint(1, 10))
+#
+# # Выбор случайного элемента из списка
+# robots = ["R2-D2", "Валл-И", "Ева", "Оптимус"]
+# print("Случайный робот:", random.choice(robots))
+#
+# # Перемешать список
+# random.shuffle(robots)
+# print("Перемешанный список:", robots)
+#
+# # 6. Модуль json - работа с JSON (очень важно для API!)
+# import json
+#
+# # Данные Python → JSON строка
+# robot_data = {
+#     "name": "R2-D2",
+#     "type": "астромеханик",
+#     "height": 0.96,
+#     "skills": ["пилотирование", "ремонт", "хакерство"]
+# }
+#
+# json_string = json.dumps(robot_data, ensure_ascii=False, indent=2)
+# print("JSON строка:")
+# print(json_string)
+#
+# # JSON строка → данные Python
+# parsed_data = json.loads(json_string)
+# print("\nИмя робота из JSON:", parsed_data["name"])
+#
+# # Сохранение в файл
+# with open("robot.json", "w", encoding="utf-8") as f:
+#     json.dump(robot_data, f, ensure_ascii=False, indent=2)
+
+
+
+                                #🔥B-2. Модули Python — как дитю объясняю
+# Модуль — это файл с кодом, который можно использовать в другом файле.
+#
+# Например:
+# Ты создал файл math_tools.py:
+#
+# def add(a, b):
+#     return a + b
+#
+# def mul(a, b):
+#     return a * b
+#
+# Теперь в другом файле можно подключить:
+# import math_tools
+#
+# print(math_tools.add(2, 3))
+#
+# Это как отдельный инструмент:
+# 📦 один раз написал — много раз используешь
+
+
+
+                                            #C-1: Создание собственных модулей
+# Модуль — это просто файл с расширением.py.Его можно импортировать в других файлах.
+# Структура проекта:
+# my_robots_project /
+# ├── venv /  # Виртуальная среда
+# ├── robots /  # Пакет (папка с модулями)
+# │   ├── __init__.py  # Файл, делающий папку пакетом
+# │   ├── base.py  # Базовые классы
+# │   ├── specialized.py  # Специализированные роботы
+# │   └── utils.py  # Вспомогательные функции
+# ├── data /  # Данные
+# │   └── robots.json
+# ├── tests /  # Тесты
+# │   └── test_robots.py
+# ├── main.py  # Главный файл
+# └── requirements.txt  # Зависимости
+# Пример создания модуля:
+# robots / base.py:
+#
+# """Базовый модуль для роботов"""
+# class BaseRobot:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def introduce(self):
+#         return f"Я робот {self.name}"
+#
+# def create_default_robot():
+#     """Функция для создания робота по умолчанию"""
+#     return BaseRobot("Безымянный")
+#
+# robots / specialized.py:
+#
+# """Модуль специализированных роботов"""
+# from .base import BaseRobot  # Импорт из того же пакета
+#
+# class FlyingRobot(BaseRobot):
+#     def fly(self):
+#         return f"{self.name}: Лечу!"
+#
+# main.py:
+#
+# """Главный файл проекта"""
+# # Разные способы импорта
+#
+# # 1. Импорт всего модуля
+# import robots.base
+#
+# r1 = robots.base.BaseRobot("Робот1")
+# print(r1.introduce())
+#
+# # 2. Импорт с псевдонимом
+# import robots.specialized as sp
+#
+# r2 = sp.FlyingRobot("Робот2")
+# print(r2.fly())
+#
+# # 3. Импорт конкретных классов
+# from robots.base import BaseRobot, create_default_robot
+#
+# r3 = BaseRobot("Робот3")
+# r4 = create_default_robot()
+#
+# # 4. Импорт всего (не рекомендуется!)
+# # from robots.base import *
+# robots / init.py:
+#
+# """
+# Пакет robots.
+# Здесь можно определить, что импортируется при from robots import *
+# """
+# from .base import BaseRobot
+# from .specialized import FlyingRobot
+#
+# # Можно задать переменную __all__ для контроля импорта
+# __all__ = ['BaseRobot', 'FlyingRobot']
+#
+# # Можно задать версию пакета
+# __version__ = "1.0.0"
+
+
+
+
+                                    #🔥C-2. Внешние модули (устанавливаются через pip)
+# pip — это программа, которая устанавливает библиотеки из интернета.
+# Например, хочешь установить библиотеку requests:
+# pip install requests
+#
+# Потом ты можешь её использовать:
+# import requests
+#
+# response = requests.get("https://google.com")
+# print(response.status_code)
+
+
+
+                                #D-1: Внешние модули и их установка
+# Внешние модули устанавливаются из интернета. Самый популярный репозиторий — PyPI (Python Package Index).
+# Установка модулей:
+# bash
+# # Активируем виртуальную среду
+# venv\Scripts\activate
+#
+# # Устанавливаем модули
+# pip install requests       # Для HTTP-запросов
+# pip install numpy         # Для научных вычислений
+# pip install pandas        # Для работы с таблицами
+# pip install matplotlib    # Для графиков
+# pip install flask         # Для веб-приложений
+#
+# # Установка конкретной версии
+# pip install requests==2.28.1
+#
+# # Просмотр установленных пакетов
+# pip list
+#
+# # Поиск пакета
+# pip search "robot"
+#
+# # Удаление пакета
+# pip uninstall requests
+#
+# # Сохранение зависимостей в файл
+# pip freeze > requirements.txt
+#
+# # Установка из файла requirements.txt
+# pip install -r requirements.txt
+# Пример использования внешнего модуля:
+# # Установи сначала: pip install requests
+# import requests
+#
+# # Получение данных из интернета
+# response = requests.get("https://api.github.com")
+# print("Статус:", response.status_code)
+# print("Заголовки:", response.headers['content-type'])
+# print("Кодировка:", response.encoding)
+#
+# # Получение JSON данных
+# data = response.json()
+# print("Текущий пользователь GitHub:", data['current_user_url'])
+#
+# # Создание робота через API (пример)
+# robot_data = {"name": "НовыйРобот", "type": "исследователь"}
+# response = requests.post("https://api.example.com/robots", json=robot_data)
+# print("Робот создан:", response.json())
+
+
+
+                            #🔥 D-2. Использование собственных модулей (очень важно!)
+# 📌 Правило:
+# Модуль = файл .py
+# Пакет = папка, где есть файл init.py
+#
+# Пример структуры:
+# project/
+#     venv/
+#     utils/
+#         __init__.py
+#         helpers.py
+#     main.py
+#
+# В main.py:
+# from utils.helpers import greet
+#
+# greet("Fayizdin")
+
+
+
+
+                                        #E-1: Основы Git — система контроля версий
+# Git — это система, которая запоминает все изменения в коде. Как "машина времени" для твоего проекта.
+#
+# Основные команды Git:
+# bash
+# # 1. Инициализация репозитория
+# git init  # Создаёт скрытую папку .git
+#
+# # 2. Проверка статуса
+# git status  # Показывает изменённые файлы
+#
+# # 3. Добавление файлов в "промежуточную область"
+# git add main.py           # Добавить конкретный файл
+# git add .                 # Добавить ВСЕ файлы
+# git add robots/*.py      # Добавить все .py файлы из папки robots
+#
+# # 4. Создание коммита (сохранение версии)
+# git commit -m "Добавил базовых роботов"  # -m - сообщение
+#
+# # 5. Просмотр истории
+# git log                  # Вся история
+# git log --oneline       # Краткая история
+# git log --graph         # История с ветками
+#
+# # 6. Отмена изменений
+# git checkout -- file.py  # Отмена изменений в файле
+# git reset HEAD file.py   # Убрать файл из промежуточной области
+#
+# # 7. Работа с ветками
+# git branch              # Список веток
+# git branch new-feature  # Создать ветку
+# git checkout new-feature # Перейти в ветку
+# git checkout -b new-feature # Создать и перейти
+#
+# # 8. Слияние веток
+# git checkout main       # Перейти в main
+# git merge new-feature   # Влить изменения из new-feature
+#
+# # 9. Удалённые репозитории (GitHub, GitLab)
+# git remote add origin https://github.com/username/repo.git
+# git push -u origin main  # Отправить изменения на GitHub
+# git pull origin main     # Загрузить изменения с GitHub
+# git clone https://github.com/username/repo.git  # Скачать репозиторий
+# Типичный рабочий процесс:
+# bash
+# # День 1: Начинаем проект
+# git init
+# git add .
+# git commit -m "Первоначальный коммит: базовая структура"
+# git branch develop
+# git checkout develop
+#
+# # День 2: Добавляем фичу
+# # ... пишем код ...
+# git add .
+# git commit -m "Добавлен класс RobotFactory"
+# git push origin develop
+#
+# # День 3: Исправляем баг
+# # ... исправляем ошибку ...
+# git add .
+# git commit -m "Исправлена ошибка в методе calculate_power"
+# git push origin develop
+#
+# # День 4: Вливаем в основную ветку
+# git checkout main
+# git merge develop
+# git push origin main
+# Файл .gitignore:
+# Создай файл .gitignore в корне проекта, чтобы Git игнорировал ненужные файлы:
+#
+# # Виртуальные среды
+# venv/
+# .env/
+#
+# # Файлы Python
+# __pycache__/
+# *.pyc
+# *.pyo
+# *.pyd
+#
+# # IDE
+# .vscode/
+# .idea/
+# *.swp
+# *.swo
+#
+# # Операционные системы
+# .DS_Store
+# Thumbs.db
+#
+# # Логи и данные
+# *.log
+# *.sqlite3
+# *.db
+#
+# # Временные файлы
+# temp/
+# tmp/
+
+
+
+                                                #🔥F-1. Основы Git — как ребёнку
+# Представь, что Git — это машина времени для твоего кода.
+# Ты можешь:
+# сохранить текущую версию (commit)
+# вернуться назад, если что-то сломал
+# отправить проект в интернет (GitHub)
+#
+# Самые важные команды:
+# Создать репозиторий:
+# git init
+#
+# Добавить файлы:
+# git add .
+#
+# Сохранить:
+# git commit -m "first commit"
+#
+# Посмотреть историю:
+# git log
+#
+# Подключить GitHub:
+# git remote add origin <URL>
+# git push -u origin main
+
+
+
+                                            #F-2: Полный пример проекта
+                                        # Давай создадим полноценный проект снуля!
+#
+# Шаг 1: Создаём структуру проекта
+# bash
+# # В командной строке
+# mkdir
+# my_robots_project
+# cd
+# my_robots_project
+#
+# # Создаём виртуальную среду
+# python - m
+# venv
+# venv
+# venv\Scripts\activate  # Для Windows
+#
+# # Инициализируем Git
+# git
+# init
+#
+# # Создаём структуру папок
+# mkdir
+# robots
+# data
+# tests
+# touch
+# main.py
+# README.md
+# requirements.txt.gitignore
+# touch
+# robots / __init__.py
+# robots / base.py
+# robots / factory.py
+# touch
+# tests / test_base.py
+#
+# Шаг 2: Настраиваем.gitignore
+# Создай файл.gitignore с содержимым из части 5 выше.
+#
+# Шаг 3: Пишем код
+# robots / base.py:
+#
+# class BaseRobot:
+#     def __init__(self, name, model):
+#         self.name = name
+#         self.model = model
+#         self._energy = 100
+#
+#     def __str__(self):
+#         return f"{self.name} ({self.model})"
+#
+#     @property
+#     def energy_percentage(self):
+#         return f"{self._energy}%"
+#
+#     def recharge(self):
+#         self._energy = 100
+#         return "Заряжен!"
+#
+# robots / factory.py:
+#
+# from .base import BaseRobot
+# import random
+#
+# class RobotFactory:
+#     models = ["T-100", "XJ-9", "Bender", "R2-D2"]
+#     names = ["Арнольд", "Дженни", "Бендер", "Артуро"]
+#
+#     @classmethod
+#     def create_random(cls):
+#         name = random.choice(cls.names)
+#         model = random.choice(cls.models)
+#         return BaseRobot(name, model)
+#
+#     @staticmethod
+#     def validate_robot(robot):
+#         return hasattr(robot, 'name') and hasattr(robot, 'model')
+#
+# main.py:
+# # !/usr/bin/env python3
+# """
+# Главный модуль проекта роботов
+# """
+# import json
+# from robots.base import BaseRobot
+# from robots.factory import RobotFactory
+#
+#
+# def main():
+#     print("=== Запуск фабрики роботов ===")
+#
+#     # Создаём роботов
+#     robots = []
+#     for i in range(3):
+#         robot = RobotFactory.create_random()
+#         robots.append(robot)
+#         print(f"Создан: {robot}")
+#
+#     # Сохраняем в JSON
+#     robots_data = []
+#     for robot in robots:
+#         robots_data.append({
+#             "name": robot.name,
+#             "model": robot.model,
+#             "energy": robot.energy_percentage
+#         })
+#
+#     with open("data/robots.json", "w", encoding="utf-8") as f:
+#         json.dump(robots_data, f, indent=2, ensure_ascii=False)
+#
+#     print(f"\nСохранено {len(robots)} роботов в data/robots.json")
+#
+#     # Читаем из JSON
+#     with open("data/robots.json", "r", encoding="utf-8") as f:
+#         loaded_data = json.load(f)
+#
+#     print("\nЗагруженные роботы:")
+#     for data in loaded_data:
+#         print(f"  - {data['name']} ({data['model']})")
+#
+# if __name__ == "__main__":
+#     main()
+#
+# Шаг 4: Создаём
+# requirements.txt
+# txt
+# # requirements.txt
+# # Основные зависимости
+# requests >= 2.28
+# .0
+# # Для разработки
+# pytest >= 7.0
+# .0
+# black >= 23.0
+# .0  # Форматирование кода
+# Шаг
+# 5: Работа
+# с
+# Git
+# bash
+# # Добавляем файлы
+# git
+# add.
+# git
+# status  # Проверяем, что добавилось
+#
+# # Создаём первый коммит
+# git
+# commit - m
+# "Initial commit: базовая структура проекта"
+#
+# # Создаём ветку для новой фичи
+# git
+# checkout - b
+# add - flying - robot
+#
+# # ... работаем над фичей ...
+#
+# # Коммитим изменения
+# git
+# add.
+# git
+# commit - m
+# "Добавлен класс FlyingRobot"
+#
+# # Возвращаемся в main и сливаем изменения
+# git
+# checkout
+# main
+# git
+# merge
+# add - flying - robot
+#
+# # Смотрим историю
+# git
+# log - -oneline - -graph
