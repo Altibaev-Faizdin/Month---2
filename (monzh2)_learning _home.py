@@ -1,3 +1,4 @@
+from itertools import product
 from tabnanny import process_tokens
 from tkinter.font import names  #Урок A-1: Волшебный мир Объектов. Создаём своих первых роботов!
 
@@ -2868,6 +2869,185 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
+
+                                                #Homework C-10:
+# class User:
+#     def __init__(self,username,email, password):
+#         self.username = username
+#         self.email = email
+#         self.__password = password
+#         self.is_blocked = False
+#
+#     def check_password(self, password):
+#         if password == self.__password:
+#             return True
+#         return False
+#
+#     def set_password(self, new_password):
+#         if new_password == '':
+#             print('Пароль не может быть пустым')
+#             return
+#         if len(new_password) < 4:
+#             print('Пароль слишком короткий')
+#             return
+#         self.__password = new_password
+#         print('Пароль успешно изменён')
+#
+#
+#     def __str__(self):
+#         return self.username
+#
+#     @staticmethod
+#     def validate_email(email):
+#         if email < '':
+#             raise ValueError('Error!')
+#         return True
+#
+# class Admin(User):
+#     def __init__(self, username, email, password):
+#         super().__init__(username, email, password)
+#         self.users = []
+#
+#     def add_user(self, user):
+#         self.users.append(user)
+#
+#     def block(self, user):
+#         user.is_blocked = True
+#         print(f"🚫 Пользователь {user.username} заблокирован")
+#
+#     def unblock(self, user):
+#         user.is_blocked = False
+#         print(f"✅ Пользователь {user.username} разблокирован")
+#
+#     def show_users(self):
+#         print("\n📋 Список пользователей:")
+#         for user in self.users:
+#             print(user)
+#
+#
+# # ====== ТЕСТИРОВАНИЕ ======
+#
+# admin = Admin("Admin", "admin@mail.com", "admin123")
+#
+# user1 = User("Ali", "ali@mail.com", "1111")
+# user2 = User("Sara", "sara@mail.com", "2222")
+# user3 = User("John", "john@mail.com", "3333")
+#
+# admin.add_user(user1)
+# admin.add_user(user2)
+# admin.add_user(user3)
+#
+# admin.show_users()
+#
+# admin.block(user2)
+#
+# user2.set_password("9999")   # нельзя — заблокирован
+# user1.set_password("abcd")   # можно
+#
+# admin.unblock(user2)
+# user2.set_password("9999")   # теперь можно
+#
+# admin.show_users()
+
+
+
+
+
+                                                #Homework C-11:
+# class Product:
+#     def __init__(self, id, name, price):
+#         self.id = id
+#         self.name = name
+#         self.price = price
+#
+#     def __str__(self):
+#         return f" {self.name} - {self.price} com"
+#
+#
+#     def __eq__(self, other):
+#         if not isinstance(other, Product):
+#             return False
+#
+#     def __hash__(self):
+#         return hash(self.id)
+#
+#
+# class Cart:
+#     def __init__(self):
+#         self.products = []
+#
+#     def add(self, product):
+#         self.products.append(product)
+#         print(f"Добавлен товар: {product}")
+#
+#     def remove(self, product):
+#         if product in self.products:
+#             self.products.remove(product)
+#             print(f"Удалён товар: {product}")
+#         else:
+#             print("Товар не найден в корзине")
+#
+#
+#     def total_price(self):
+#         return sum(product.price for product in self.products)
+#
+#     def __len__(self):
+#         return len(self.products)
+#
+#     def __iter__(self):
+#         return iter(self.products)
+#
+#
+# class Order(Cart):
+#     def __init__(self , cart):
+#         super().__init__()
+#         self.cart = cart
+#         self.total = cart.total_price()
+#         self.status = "created"
+#
+#     def pay(self):
+#         if self.status == "paid":
+#             self.status = "paid"
+#             print("Заказ оплачен")
+#         else:
+#             print("Заказ уже оплачен или отправлен")
+#
+#
+#     def ship(self):
+#         if self.status == "paid":
+#             self.status = "shipped"
+#             print("Заказ отправлен")
+#         else:
+#             print("Заказ нельзя отправить")
+#
+#
+# # ===== ТЕСТИРОВАНИЕ =====
+#
+# # Товары
+# p1 = Product(1, "Чехол", 1200)
+# p2 = Product(2, "Зарядка", 1500)
+# p3 = Product(3, "Наушники", 2500)
+#
+# # Корзина
+# cart = Cart()
+# cart.add(p1)
+# cart.add(p2)
+# cart.add(p3)
+#
+# print("\nТовары в корзине:")
+# for item in cart:
+#     print(item)
+#
+# print(f"\nКоличество товаров: {len(cart)}")
+# print(f"Итоговая сумма: {cart.total_price()} сом")
+#
+# # Заказ
+# order = Order(cart)
+# print(f"\nСтатус заказа: {order.status}")
+# order.pay()
+# print(f"Статус заказа: {order.status}")
+# order.ship()
+# print(f"Статус заказа: {order.status}")
 
 
 
