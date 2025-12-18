@@ -14,10 +14,10 @@ class Person:
 person1 = Person("Алинур", '12.05.2000', occupation = "Медик", higher_education = True)
 person2 = Person("Акылай",  '03.11.1998', occupation = "Программист", higher_education = False)
 person3 = Person("Артур", '25.08.2002', occupation = "Инжинер", higher_education = True)
-
-print("Person1:", person1.name, person1.birth_date, person1.occupation, person1.higher_education)
-print("Person2:", person2.name, person2.birth_date, person2.occupation, person2.higher_education)
-print("Person3:", person3.name, person3.birth_date, person3.occupation, person3.higher_education)
+if __name__ == "__main__":
+    print("Person1:", person1.name, person1.birth_date, person1.occupation, person1.higher_education)
+    print("Person2:", person2.name, person2.birth_date, person2.occupation, person2.higher_education)
+    print("Person3:", person3.name, person3.birth_date, person3.occupation, person3.higher_education)
 
 
 print("\nПредс-е объектов:")
