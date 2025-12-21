@@ -2,6 +2,9 @@ from itertools import product
 from tabnanny import process_tokens
 from tkinter.font import names  #Урок A-1: Волшебный мир Объектов. Создаём своих первых роботов!
 
+from Month2_homework.homework_1 import person1
+
+
 # Представь, что ты волшебник, который может создавать любые предметы. Допустим, ты хочешь создать армию роботов.
 # У каждого робота есть:
 # Имя (например, "R2-D2" или "Валл-И").
@@ -3051,6 +3054,201 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
+
+                                        #Homework A-11:
+# class Account:
+#     def __init__(self,username, balance=0):
+#         self.username = username
+#         self.__balance = balance
+#
+#
+#     def deposit(self,amount):
+#         if amount > 0:
+#             self.__balance += amount
+#             print(f'{self.username} получил деньги')
+#
+#
+#     def withdraw(self,amount):
+#         if amount > self.__balance:
+#             self.__balance -= amount
+#         else:
+#             print("Недостаточно средств")
+#
+#
+#     def check_balance(self):
+#         return self.__balance
+#
+# class SavingsAccount(Account):
+#     def __init__(self,username,balance=0, interest_rate=0.05):
+#         super().__init__(username, balance)
+#         self.interest_rate = interest_rate
+#
+#
+#     def add_interest(self):
+#         interest = self.check_balance() * self.interest_rate
+#         self.deposit(interest)
+#
+#
+# class CreditAccount(Account):
+#     def __init__(self,username,balance=0, limit=10000):
+#         super().__init__(username, balance)
+#         self.limit = limit
+#
+#
+#     def withdraw(self,amount):
+#         if self.check_balance() - amount >= -self.limit:
+#             new_balance = self.check_balance() - amount
+#             self._Account__deposit = new_balance
+#         else:
+#             print("Превышен кредитный лимит")
+#
+#
+# savings = SavingsAccount("Анна", 10000)
+# credit = CreditAccount("Иван", 5000, 15000)
+#
+# savings.deposit(2000)
+# credit.deposit(3000)
+#
+# savings.withdraw(3000)
+# savings.withdraw(4000)
+#
+# credit.withdraw(5000)
+# credit.withdraw(4000)
+#
+# savings.add_interest()
+
+
+
+
+
+                                            #Homework A-12:
+# class Transport:
+#     def __init__(self, name, speed, capacity):
+#         self.name = name
+#         self.speed = speed
+#         self.capacity = capacity
+#
+#     def move(self):
+#         print("Moving Car")
+#
+#     def __str__(self):
+#         return f'Name: {self.name}, Speed : {self.speed}, Capacity : {self.capacity}'
+#
+# class Car(Transport):
+#     def move(self):
+#         print("Едет по дороге")
+#
+#
+# class Bus(Transport):
+#     def move(self):
+#         print('Перевозит пассажиров')
+#
+#
+# class Train(Transport):
+#     def move(self):
+#         print('Движется по рельсам')
+#
+#
+# supra = Car('Supra MK4', 440, 2)
+# bus_42 = Bus('Bus 42', 120, 35)
+# train243 = Train('Train 243', 1200, 350)
+#
+# transports = [supra, bus_42, train243]
+#
+# for t in transports:
+#     print(t)
+#     t.move()
+
+
+
+
+                                            #Homework A-13:
+# from datetime import datetime
+#
+# class Message:
+#     def __init__(self, text, sender, receiver):
+#         self.text = text
+#         self.sender = sender
+#         self.receiver = receiver
+#         self.time = datetime.now()
+#
+#     def __str__(self):
+#         return f"[{self.time:%H:%M}] {self.sender.name} -> {self.receiver.name}: {self.text}"
+#
+# class User:
+#     def __init__(self, name):
+#         self.name = name
+#         self.received_messages = []
+#
+#     def send_message(self, chat, receiver, text):
+#         chat.send(self, receiver, text)
+#
+#
+# class Chat:
+#     def __init__(self, name):
+#         self.name = name
+#         self.users = []
+#         self.messages = []
+#
+#
+#     def register(self, user):
+#         self.users.append(user)
+#
+#
+#     def send(self, sender, receiver, text):
+#         if sender not in self.users or receiver not in self.users:
+#             print('Один из пользователей не зарегистрирован')
+#             return
+#
+#         message = Message(text, sender, receiver)
+#
+#         self.messages.append(message)
+#         receiver.received_messages.append(message)
+#
+#
+#     def history(self, user):
+#         for message in self.messages:
+#             if message.sender == user or message.receiver == user:
+#                 print(message)
+#
+#
+# # создаём чат
+# chat = Chat('dfdfd')
+#
+# # создаём пользователей
+# alice = User("Alice")
+# bob = User("Bob")
+# charlie = User("Charlie")
+#
+# # регистрируем
+# chat.register(alice)
+# chat.register(bob)
+# chat.register(charlie)
+#
+# alice.send_message(chat, bob, "Привет, Боб!")
+# bob.send_message(chat, alice, "Привет, Алиса!")
+# charlie.send_message(chat, alice, "Как дела?")
+#
+# print("История сообщений Alice:")
+# chat.history(alice)
+
+
+
+
+
+
+
+                                            #Homework A-13:
+class People:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def say_hi(self):
+        print(f'Hello, my name is{self.name}! i`m {self.age} years old')
+
+people1 = People("Alinur", 18)
+people1.say_hi()
 
 
 

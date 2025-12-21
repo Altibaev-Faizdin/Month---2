@@ -29,7 +29,7 @@ person3.introduce()
 
 
 #ЧТОБЫ ПОЛУЧИТ ОТВЕТ НАДО ПОСТАВИТ ВОТ ЭТОТ КОММАНДУ НА ТЕРМИНАЛ ИЛИ GIT BUSH!!!
-#cd C:\Users\admin\PycharmProjects\Month2
-#python Month2_homework/colorful_print.py
+#python Month2_homework/colorful_print.py - для git bush
+#python C:\Users\admin\PycharmProjects\Month2\Month2_homework\colorful_print.py - для терминал
 
 
