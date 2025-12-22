@@ -3239,16 +3239,117 @@ from Month2_homework.homework_1 import person1
 
 
                                             #Homework A-13:
-class People:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+# class People:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#
+#     def say_hi(self):
+#         print(f'Hello, my name is{self.name}! i`m {self.age} years old')
+#
+# people1 = People("Alinur", 18)
+# people1.say_hi()
 
-    def say_hi(self):
-        print(f'Hello, my name is{self.name}! i`m {self.age} years old')
 
-people1 = People("Alinur", 18)
-people1.say_hi()
+
+
+
+                                        #Homework A-14:
+# class PLane:
+#     def __init__(self, brand, speed=0):
+#         self.brand = brand
+#         self.speed = speed
+#
+#
+#     def accelerate(self, value):
+#         self.speed += value
+#         print(f'Name: {self.brand}, ускорилась на {value}. Текущая скорость:  {self.speed}')
+#
+#
+#     def brake(self, value):
+#         self.speed -= value
+#         if self.speed < 0:
+#             self.speed = 0
+#         print(f"Name: {self.brand} затормозила на {value}. Текущая скорость: {self.speed}")
+#
+# plane1 = PLane('B-55', 2000)
+# plane1.accelerate(30)
+# plane1.brake(50)
+
+
+
+
+                                    #Homework A-15:
+# class Student:
+#     school_name = "Sunrise High School"
+#
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def info(self):
+#          print(f'Name School: {Student.school_name}, name student: {self.name}')
+#
+# student1 = Student('Alinur')
+# student2 = Student('Bob')
+# student1.info()
+# student2.info()
+#
+# Student.school_name = "KNU"
+# student1.info()
+# student2.info()
+
+
+
+
+
+                                                #Homework A-16:
+# class Animal:
+#     def make_sound(self):
+#         pass
+#
+# class Dog(Animal):
+#     def make_sound(self):
+#         print('Woof Woof')
+#
+# class Cat(Animal):
+#     def make_sound(self):
+#         print('Meow Meow')
+#
+# dog1 = Dog()
+# dog1.make_sound()
+#
+# cat1 = Cat()
+# cat1.make_sound()
+
+
+
+
+
+                                                #Homework A-17:
+# class Author:
+#     def __init__(self, name, birth_date):
+#         self.name = name
+#         self.birth_date = birth_date
+#
+#     def info(self):
+#         print(f'My name is {self.name}, my birth day {self.birth_date}')
+#
+# class Book:
+#     def __init__(self, title, author):
+#         self.title = title
+#         self.author = author
+#
+#     def info(self):
+#         print(f'Title: {self.title}, author: {self.author.info()}')
+#
+# author1 = Author('Alinur', '09.11.2004')
+# book1 = Book('Python', author1)
+# print(book1.info())
+#
+# author1.name = "Л. Н. Толстой"
+# print(book1.info())
+
+
 
 
 
