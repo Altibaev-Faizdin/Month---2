@@ -3354,6 +3354,162 @@ from Month2_homework.homework_1 import person1
 
 
 
+
+                                            #Homework A-18:
+# class User:
+#     def __init__(self, username, email):
+#         self.username = username
+#         self.email = email
+#
+#     def info(self):
+#         print(f"Name: {self.username}, Email: {self.email}")
+#
+# class Admin(User):
+#     def ban_user(self, user):
+#         print(f'Admin block: {user.username}')
+#
+# user1 = User("alex", "alex@mail.com")
+# user2 = User("john", "john@mail.com")
+#
+# admin = Admin("admin", "admin@mail.com")
+#
+# user1.info()
+# admin.info()
+#
+# admin.ban_user(user2)
+
+
+
+
+
+
+
+                                                #Homework A-18:
+# class Product:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+#
+#     def apply_discount(self, precent):
+#         self.price -= self.price * precent / 100
+#         return self
+#
+# class Store:
+#     def __init__(self):
+#         self.products = []
+#
+#     def add_product(self, product):
+#         self.products.append(product)
+#
+#     def show_products(self):
+#         for product in self.products:
+#             print(f'{product.name}:, {product.price}')
+#
+# phone = Product("iPhone", 100000)
+# laptop = Product("MacBook", 180000)
+# phone.apply_discount(10)
+#
+# store = Store()
+# store.add_product(phone)
+# store.add_product(laptop)
+#
+# store.show_products()
+
+
+
+
+
+
+
+                                        #Homework A-19:
+# class Employee:
+#     def __init__(self, name, base_salary):
+#         self.name = name
+#         self.base_salary = base_salary
+#
+#
+#     def calculate_salary(self):
+#         return self.base_salary
+#
+# class Manager(Employee):
+#     def calculate_salary(self):
+#         return self.base_salary + 2000
+#
+# class Developer(Employee):
+#     def calculate_salary(self):
+#         return self.base_salary * 1.5
+#
+# emp = Employee("Alex", 50000)
+# print(emp.calculate_salary())
+#
+# mgr = Manager("Bob", 60000)
+# print(mgr.calculate_salary())
+#
+# dev = Developer("Sara", 70000)
+# print(dev.calculate_salary())
+#
+
+
+
+
+
+                                                #Homework A-19:
+# class Book:
+#     def __init__(self, title, author):
+#         self.title = title
+#         self.author = author
+#
+# class Library:
+#     def __init__(self):
+#         self.books = []
+#
+#     def add_book(self, book):
+#         self.books.append(book)
+#
+#     def show_books(self):
+#         for book in self.books:
+#             print(f'{book.title} - {book.author}')
+#
+# book1 = Book("1984", "George Orwell")
+# book2 = Book("Dune", "Frank Herbert")
+#
+# library = Library()
+# library.add_book(book1)
+# library.add_book(book2)
+# library.show_books()
+
+
+
+
+
+
+
+                                                #Homework A-20:
+# class Character:
+#     def __init__(self, name, health):
+#         self.name = name
+#         self.health = health
+#
+#     def attack(self, target):
+#         self.health -= 10
+#
+# class Warrior(Character):
+#     def attack(self, target):
+#         target.health -= 20
+#
+# class Mage(Character):
+#     def attack(self, target):
+#         target.health -= 30
+#
+# warrior = Warrior("Thor", 100)
+# mage = Mage("Merlin", 80)
+#
+# warrior.attack(mage)
+# mage.attack(warrior)
+# print(warrior.health)
+# print(mage.health)
+
+
 #----------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------
 
