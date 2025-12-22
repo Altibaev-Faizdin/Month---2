@@ -23,16 +23,18 @@ def insert_books():
     cursor = connection.cursor()
 
     books = [
-        ("Python Basics", "Guido van Rossum", 1991, "Programming", 300, 5),
-        ("Clean Code", "Robert C. Martin", 2008, "Programming", 464, 3),
-        ("The Hobbit", "J.R.R. Tolkien", 1937, "Fantasy", 310, 7),
-        ("1984", "George Orwell", 1949, "Dystopia", 328, 6),
-        ("War and Peace", "Leo Tolstoy", 1869, "Classic", 1225, 2),
-        ("Harry Potter", "J.K. Rowling", 1997, "Fantasy", 350, 10),
-        ("The Little Prince", "Antoine de Saint-Exupéry", 1943, "Fable", 96, 4),
-        ("The Alchemist", "Paulo Coelho", 1988, "Novel", 208, 5),
-        ("Sherlock Holmes", "Arthur Conan Doyle", 1892, "Detective", 450, 3),
-        ("Crime and Punishment", "Fyodor Dostoevsky", 1866, "Classic", 671, 2)
+        ("Манас", "Манасчы", 1800, "Эпос", 5000, 3),
+        ("Семетей", "Манасчы", 1850, "Эпос", 4200, 2),
+        ("Сейтек", "Манасчы", 1900, "Эпос", 3800, 2),
+
+        ("Жамийла", "Чыңгыз Айтматов", 1958, "Повесть", 128, 7),
+        ("Саманчынын жолу", "Чыңгыз Айтматов", 1963, "Повесть", 160, 6),
+        ("Ак кеме", "Чыңгыз Айтматов", 1970, "Повесть", 144, 5),
+        ("Кылым карытар бир күн", "Чыңгыз Айтматов", 1980, "Роман", 352, 4),
+        ("Кассандра тамгасы", "Чыңгыз Айтматов", 1994, "Роман", 384, 3),
+
+        ("Материнское поле", "Чыңгыз Айтматов", 1963, "Роман", 256, 4),
+        ("Бетме-бет", "Чыңгыз Айтматов", 1957, "Повесть", 112, 6),
     ]
 
     cursor.executemany("""
