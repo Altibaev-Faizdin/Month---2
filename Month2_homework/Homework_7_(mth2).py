@@ -9,10 +9,10 @@ def create_tables():
         id INTEGER PRIMARY KEY,
         name TEXT,
         author TEXT,
-        publication_year,
+        publication_year INTEGER,
         genre TEXT,
         number_of_pages INTEGER,
-        number_of_copies
+        number_of_copies INTEGER
     )
     """)
     connection.commit()
