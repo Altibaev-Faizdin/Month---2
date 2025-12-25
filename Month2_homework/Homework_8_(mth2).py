@@ -60,7 +60,8 @@ def edit_books(book_id, name, author, publication_year, genre, number_of_pages, 
 
 
 def get_all_books():
-    return conn.execute("SELECT * FROM books").fetchall()
+    result = conn.execute("SELECT * FROM books")
+    return result.fetchall()
 
 
 if __name__ == '__main__':
