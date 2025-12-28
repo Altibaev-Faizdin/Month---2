@@ -3510,6 +3510,232 @@ from Month2_homework.homework_1 import person1
 # print(mage.health)
 
 
+
+                                            #Homework A-21:
+# class Flayer:
+#     def fly(self):
+#         print("fly")
+#
+# class Swimmer:
+#     def swim(self):
+#         print("swimm")
+#
+# class Duck(Flayer, Swimmer):
+#     pass
+#
+# duck = Duck()
+# duck.fly()
+# duck.swim()
+
+
+
+
+
+
+                                                #Homework A-22:
+# class User:
+#     user_count = 0
+#
+#     def __init__(self, name, email):
+#         self.name = name
+#         self.email = email
+#
+#
+#     def __str__(self):
+#         return f'Name: {self.name}, Email: {self.email}'
+#
+#     @classmethod
+#     def create_user(cls, name, email):
+#         cls.user_count += 1
+#         return cls(name, email)
+#
+# user1 = User.create_user("Alice", "alice@example.com")
+# user2 = User.create_user("Bob", "bob@example.com")
+#
+# print(user1)
+# print(user2)
+#
+# print("Всего пользователей:", User.user_count)
+
+
+
+
+
+                                            #Homework A-23:
+# class Cart:
+#     def __init__(self):
+#         self.products = []
+#
+#     def add_outcome(self, outcome):
+#         self.products.append(outcome)
+#
+#     def remove_outcome(self, outcome):
+#        if outcome in self.products:
+#            self.products.remove(outcome)
+#
+#     def __len__(self):
+#         return len(self.products)
+#
+#     def __str__(self):
+#         if not self.products:
+#             return "Корзина пуста"
+#         result = 'Корзина:\n'
+#         for idx, outcome in enumerate(self.products, start=1):
+#             result += f"{idx}. {outcome}\n"
+#         return result.strip()
+#
+# cart = Cart()
+# cart.add_outcome("Ноутбук")
+# cart.add_outcome("Мышь")
+# cart.add_outcome("Клавиатура")
+#
+# print(cart)
+# print("Количество товаров в корзине:", len(cart))
+#
+# cart.remove_outcome("Мышь")
+# print(cart)
+# print("Количество товаров в корзине:", len(cart))
+
+
+
+
+
+
+                                                #Homework A-24:
+# import re
+#
+# class Utils:
+#     @staticmethod
+#     def is_valid_email(email):
+#         pattern = r"[^@]+@[^@]+\.[^@]+"
+#         return re.match(pattern, email) is not None
+#
+#     @staticmethod
+#     def is_strong_password(password):
+#         if len(password) < 8:
+#             return False
+#         if not re.search(r'\d', password):
+#             return False
+#         if not re.search(r'[A-Z]', password):
+#             return False
+#         return True
+#
+# print(Utils.is_valid_email("alice@example.com"))   # True
+# print(Utils.is_valid_email("invalid_email"))       # False
+#
+# print(Utils.is_strong_password("Pass1234"))        # True
+# print(Utils.is_strong_password("weak"))           # False
+
+
+
+
+                                        #Homework A-25:
+# class Logger:
+#     logs = []
+#
+#     @classmethod
+#     def add_log(cls, message):
+#         cls.logs.append(message)
+#
+#     def __str__(self):
+#         if not Logger.logs:
+#             return "Логов пока нет"
+#         result = 'История логов:\n'
+#         for idx, log in enumerate(Logger.logs, start=1):
+#             result += f'{idx}. {log}\n'
+#         return result.strip()
+#
+#
+# # Добавляем записи в лог
+# Logger.add_log("Пользователь Alice зарегистрирован")
+# Logger.add_log("Пользователь Bob вошёл в систему")
+# Logger.add_log("Заказ №123 создан")
+#
+# # Создаём объект Logger для вывода
+# logger = Logger()
+#
+# print(logger)
+
+
+
+                                                #Homework A-26:
+# class Flyable:
+#     def fly(self):
+#        return f'{self.name} fly'
+#
+# class Swimmable:
+#     def swim(self):
+#         return f'{self.name} swim'
+#
+# class Character:
+#     def __init__(self, name, health):
+#         self.name = name
+#         self.health = health
+#
+#     def __str__(self):
+#         return f"Name: {self.name}, health: {self.health}"
+#
+#     def __len__(self):
+#         return len(self.name)
+#
+#     def __eq__(self, other):
+#         if isinstance(other, Character):
+#             return self.name == other.name and self.health == other.health
+#         return False
+#
+# class Duck(Character, Flyable, Swimmable):
+#     pass
+#
+#
+# class Fish(Character, Swimmable):
+#     pass
+#
+#
+# class Bird(Character, Flyable):
+#     pass
+#
+# duck = Duck("Утка Дональд", 100)
+# fish = Fish("Рыбка Немо", 50)
+# bird = Bird("Птица Чирик", 80)
+#
+# # магический метод __str__
+# print(duck)
+# print(fish)
+# print(bird)
+#
+# # возможности миксинов
+# print(duck.fly())
+# print(duck.swim())
+# print(fish.swim())
+# print(bird.fly())
+#
+# # магический метод __len__ для здоровья
+# print(f"Здоровье утки: {len(duck)}")
+#
+# # магический метод __eq__
+# duck2 = Duck("Утка Дональд", 100)
+# print("duck == duck2:", duck == duck2)
+# print(Duck.mro())
+
+
+
+                                        #Homework A-27
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def __str__(self):
+        return f"Name: {self.title} author: {self.author}"
+
+book1 = Book("1984", "George Orwell")
+book2 = Book("Dune", "Frank Herbert")
+print(book1)
+print(book2)
+
+
+
+
 #----------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------
 
