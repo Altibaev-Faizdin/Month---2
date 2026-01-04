@@ -3731,7 +3731,7 @@ from Month2_homework.homework_1 import person1
 # book1 = Book("1984", "George Orwell")
 # book2 = Book("Dune", "Frank Herbert")
 # print(book1)
-print(book2)
+# print(book2)
 
 
 
