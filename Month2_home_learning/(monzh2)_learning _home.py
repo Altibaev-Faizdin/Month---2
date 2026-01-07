@@ -2,7 +2,6 @@ from itertools import product
 from tabnanny import process_tokens
 from tkinter.font import names  #Урок A-1: Волшебный мир Объектов. Создаём своих первых роботов!
 
-from Month2_homework.homework_1 import person1
 
 
 # Представь, что ты волшебник, который может создавать любые предметы. Допустим, ты хочешь создать армию роботов.
@@ -3731,7 +3730,7 @@ from Month2_homework.homework_1 import person1
 # book1 = Book("1984", "George Orwell")
 # book2 = Book("Dune", "Frank Herbert")
 # print(book1)
-print(book2)
+#print(book2)
 
 
 
@@ -4416,3 +4415,151 @@ print(book2)
 #----------------------------------------------------------------------------------------------------------#
 
 
+                                    #Homework A-1:
+# class Phone:
+#     def __init__(self, brand, color, storage):
+#         self.brand = brand
+#         self.color = color
+#         self.storage = storage
+#
+#     def __str__(self):
+#         return f"Brand {self.brand}. Color: {self.color}. Storage: {self.storage}."
+#
+#     def call(self):
+#         print("Calling Phone")
+#
+#     def send_message(self):
+#         print("Send Message")
+#
+# iphone1 = Phone('Samsung', 'white', '500gb')
+# iphone2 = Phone('Redmi', 'black', '256gb')
+#
+# print(iphone1)
+# print(iphone2)
+#
+# iphone1.call()
+# iphone2.call()
+#
+# iphone1.send_message()
+# iphone2.send_message()
+
+
+
+
+                                            #Homework A-2:
+# class Person:
+#     def __init__(self, password):
+#         self._password = password
+#
+#     def get_password(self):
+#         return self._password
+#
+# person1 = Person("0000")
+# print(person1.get_password())
+
+
+
+                                            #Homework A-3:
+# class Animal:
+#     def make_sound(self):
+#         pass
+#
+# class Dog:
+#     def make_sound(self):
+#         print('Woyf Woyf')
+#
+# class Cat:
+#     def make_sound(self):
+#         print('Meow Meow')
+#
+# Reks = Dog()
+# Reks.make_sound()
+#
+# Sasha = Cat()
+# Sasha.make_sound()
+
+
+
+
+                                        #Homework A-4:
+# class Car:
+#     def __init__(self, brand):
+#         self.brand = brand
+#
+#     def __str__(self):
+#         return f'Car: {self.brand}'
+#
+#     @staticmethod
+#     def info():
+#         return 'This class for car'
+#
+#     @classmethod
+#     def create_default(cls):
+#         return cls("BMW")
+#
+# car1 = Car("Audi")
+# print(car1)
+#
+# print(Car.info())
+#
+# car2 = Car.create_default()
+# print(car2)
+
+
+
+
+
+                                            #Homework A-5:
+# class BankAccount:
+#     def __init__(self, balance):
+#         self.balance = balance
+#
+#     def deposit(self, amount):
+#         self.balance += amount
+#
+#     def withdraw(self, amount):
+#         if amount <= self.balance:
+#             self.balance -= amount
+#         else:
+#             print('Not enough money!')
+#
+# account1 = BankAccount(100)
+# account2 = BankAccount(300)
+#
+# account1.deposit(100)
+# account2.deposit(50)
+#
+# account1.withdraw(15)
+# account2.withdraw(10)
+#
+# print('Balance account1:', account1.balance)
+# print('Balance account2:', account2.balance)
+
+
+                                                    #Homework
+# import sqlite3
+# conn = connection = sqlite3.connect("test.db")
+# cursor = conn.cursor()
+#
+# create_table_query = """
+# CREATE TABLE IF NOT EXISTS users (
+#     id INTEGER PRIMARY KEY,
+#     name TEXT,
+#     age INTEGER
+# )
+# """
+#
+# cursor.execute(create_table_query)
+# conn.commit()
+#
+# cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Alice", 25))
+# cursor.execute("INSERT INTO users (name, age) VALUES (?, ?)", ("Bob", 30))
+# conn.commit()
+#
+# cursor.execute("SELECT * FROM users")
+# all_users = cursor.fetchall()
+#
+# for user in all_users:
+#     print(user)
+#
+# conn.close()
