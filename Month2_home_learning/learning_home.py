@@ -1,3 +1,4 @@
+from ast import main
 from itertools import product
 from tabnanny import process_tokens
 from tkinter.font import names  #Урок A-1: Волшебный мир Объектов. Создаём своих первых роботов!
@@ -4536,7 +4537,7 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 # print('Balance account2:', account2.balance)
 
 
-                                                    #Homework
+                                                    #Homework A-6:
 # import sqlite3
 # conn = connection = sqlite3.connect("test.db")
 # cursor = conn.cursor()
@@ -4563,3 +4564,137 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 #     print(user)
 #
 # conn.close()
+
+
+
+
+                                            #Homework A-7:
+# import sqlite3
+#
+# def create_tables(connection):
+#     connection.execute("""
+#     CREATE TABLE IF NOT EXISTS employees (
+#         name TEXT,
+#         age INTEGER,
+#         residence TEXT
+#     )
+#     """)
+#
+# def add_person(connection, name, age, residence):
+#     connection.execute("""
+#     INSERT INTO employees
+#     VALUES (?, ?, ?)
+#     """,
+#                        (name, age, residence))
+#     connection.commit()
+#
+# if __name__ == '__main__':
+#     conn = sqlite3.connect('tables.db')
+#
+#     create_tables(conn)
+#     add_person(conn, 'Abdurahim', 18, '3mkr')
+
+
+
+
+                                        #Homework A-8:
+# name = input("What is your name? : ")
+# age = int(input("How old are you? : "))
+# city = input("Where are you from? : ")
+# hobby = input("What do you do? : ")
+#
+# print(f'My name is {name} and i am {age} years old. I live in {city}. I am {hobby}.')
+
+
+
+                                                #Homework A-9:
+# age = int(input('How old are you? :'))
+#
+# if age < 17:
+#     print('don`t welcome')
+# elif age <= 18:
+#     print('I think you are old')
+# else:
+#     print('Welcome madam or man')
+
+
+
+                                            #Homework A-10:
+# password = input("Enter your password: ")
+# while  len(password) < 6:
+#     print("Password must be at least 6 characters long")
+#     password = input("Enter your password: ")
+#     print('Amazing password')
+
+
+
+
+
+                                        #Homework A-11:
+# songs = []
+# songs.append('Supermen')
+# songs.append('Good for you')
+# songs.append('Mala')
+# songs.append('Gata only')
+# songs.append('Ice baby')
+#
+# print('Playing songs:')
+# for track in songs:
+#     print(track)
+#
+# print('All songs:', len(songs))
+#
+# print('Only song:', songs[0])
+# print('End song:', songs[-1])
+
+
+
+
+
+                                                #Homework A-12:
+# user = {
+#     'name': 'Alinur',
+#     'age': 21,
+#     'city': 'Bishkek',
+#     'profession': 'Programmer'
+# }
+#
+# user['hobby'] = 'Programming'
+#
+# print('User cart: ')
+# for key, value in user.items():
+#     print(f'{key}: {value}')
+
+
+
+                                            #Homework A-13:
+# def add(a, b):
+#     return a + b
+#
+# def sub(a, b):
+#     return a - b
+#
+# def mul(a, b):
+#     return a * b
+#
+# def div(a, b):
+#     if b == 0:
+#         return 'Error'
+#     return a / b
+#
+# calculator1 = float(input('Enter number: '))
+# calculator2 = float(input('Enter number: '))
+# operations = input('Change operations (+, -, *, /): ')
+#
+# if operations == '+':
+#     result = add(calculator1, calculator2)
+# elif operations == '-':
+#     result = sub(calculator1, calculator2)
+# elif operations == '*':
+#     result = mul(calculator1, calculator2)
+# elif operations == '/':
+#     result = div(calculator1, calculator2)
+# else:
+#     result = 'Error'
+#
+# print('Result:', result)
