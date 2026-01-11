@@ -4570,34 +4570,106 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
                                             #Homework A-7:
 # import sqlite3
+# from pprint import pprint
 #
 # def create_tables(connection):
+#     connection.execute(""" DROP TABLE IF EXISTS employees """)
 #     connection.execute("""
 #     CREATE TABLE IF NOT EXISTS employees (
-#         name TEXT,
-#         age INTEGER,
+#         id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         name TEXT NOT NULL,
+#         age INTEGER DEFAULT 0,
 #         residence TEXT
 #     )
 #     """)
 #
 # def add_person(connection, name, age, residence):
-#     connection.execute("""
-#     INSERT INTO employees
-#     VALUES (?, ?, ?)
-#     """,
+#     connection.execute(
+#         """
+#         INSERT INTO employees (name, age, residence)
+#         VALUES (?, ?, ?)
+#         """,
 #                        (name, age, residence))
 #     connection.commit()
+#
+#
+# def delete_person(connection, person_id):
+#     connection.execute(
+#         """
+#         DELETE FROM employees
+#         WHERE id = ?
+#         """,
+#         (person_id,))
+#     connection.commit()
+#
+#
+# def get_all_person(connection):
+#     results = connection.execute(
+#         "SELECT id, name FROM employees"
+#     )
+#     return results.fetchall()
+#
+#
+# def get_person(connection, person_id):
+#     results = connection.execute(
+#         """
+#         SELECT * FROM employees
+#         WHERE id = ?
+#         """,
+#                                  (person_id,))
+#     return results.fetchall()
+#
+#
+# def get_person_by_residence(connection, residence):
+#     results = connection.execute(
+#         """
+#         SELECT * FROM employees
+#         WHERE residence = ?
+#         ORDER BY age DESC
+#         """,
+#                                  (residence,))
+#     return results.fetchall()
+#
+# def change_person(connection, person_id, new_age, new_residence):
+#     connection.execute(
+#     """
+#     UPDATE employees SET age = ?, residence = ? WHERE id = ?
+#     """,
+#                         (new_age, new_residence, person_id))
+#     connection.commit()
+#
 #
 # if __name__ == '__main__':
 #     conn = sqlite3.connect('tables.db')
 #
 #     create_tables(conn)
 #     add_person(conn, 'Abdurahim', 18, '3mkr')
+#     add_person(conn, 'Alinur', 21, 'Filarmonia')
+#     add_person(conn, 'Kuluch', 21, 'Tokmok')
+#     add_person(conn, 'Shahnur', 26, 'Filarmonia')
+#     add_person(conn, 'Iris', 21, 'Orto-say')
+#
+#     delete_person(conn, 1)
+#
+#     pprint(get_all_person(conn))
+#     for person in get_all_person(conn):
+#         print(person)
+#
+#     print(get_person(conn, 2))
+#     pprint(get_person_by_residence(conn, 'Filarmonia'))
+#
+#     change_person(conn, 2, 29, 'Almaty')
+#     print(get_person(conn, 2))
+#
+#     conn.close()
 
 
 
 
-                                        #Homework A-8:
+
+
+
+                                 # Homework A-8:
 # name = input("What is your name? : ")
 # age = int(input("How old are you? : "))
 # city = input("Where are you from? : ")
@@ -4751,5 +4823,4 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
-
-
+                                        #Homework A-16:
