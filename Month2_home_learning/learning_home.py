@@ -4698,3 +4698,58 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 #     result = 'Error'
 #
 # print('Result:', result)
+
+
+
+
+
+                                        #Homework A-14:
+# square = lambda x: x * x
+#
+# try:
+#     user_input = int(input("Enter a number: "))
+#     number = float(user_input)
+#
+#     result = square(number)
+#     print('Result: ', result)
+#
+# except ValueError:
+#     print("Please enter a number")
+
+
+
+
+
+                                        #Homework A-15:
+# class Character:
+#     def __init__(self, name, health):
+#         self.name = name
+#         self.health = health
+#
+#     def attack(self):
+#         print(f'{self.name} attacked {self.health} health')
+#
+# class Warrior(Character):
+#     def __init__(self, name, health, weapon):
+#         super().__init__(name, health)
+#         self.weapon = weapon
+#
+#
+#     def attack(self):
+#         print(f'{self.name} attacked with {self.weapon}')
+#
+#
+# hero1 = Character('Badang', 200)
+# hero2 = Warrior('Iks-Borg', 130, 'Ultimate')
+#
+# hero1.attack()
+# hero2.attack()
+
+
+
+
+
+
+
+
+
