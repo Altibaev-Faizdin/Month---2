@@ -1,5 +1,6 @@
 from ast import main
 from itertools import product
+from math import factorial
 from tabnanny import process_tokens
 from tkinter.font import names  #Урок A-1: Волшебный мир Объектов. Создаём своих первых роботов!
 
@@ -4824,3 +4825,202 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
                                         #Homework A-16:
+# class Animal:
+#     def __init__(self, energy):
+#         self._energy = energy
+#
+#     def make_sound(self):
+#          print('Animal makes sound!')
+#
+#
+# class Dog(Animal):
+#     def make_sound(self):
+#         print('Dog makes sound "Wof-Wof"!')
+#
+# class Cat(Animal):
+#     def make_sound(self):
+#         print('Cat makes sound "Meow-Meow"!')
+#
+#
+#
+# Reks = Dog(100)
+# Alisa = Cat(200)
+#
+# Reks.make_sound()
+# Alisa.make_sound()
+
+
+
+                                            #Homework A-17:
+# class Car:
+#     def __init__(self, brand, price):
+#         self.brand = brand
+#         self.price = price
+#
+#     def __str__(self):
+#         return f'Brand: {self.brand}. Price: {self.price}'
+#
+#     @classmethod
+#     def create_default(cls):
+#         return cls('Mers', 50000)
+#
+#     @staticmethod
+#     def salon_info():
+#         return 'Welcome autosalon Weenzox.62'
+#
+#
+# car1 = Car('BMW', 40000)
+# print(car1)
+#
+# default_car = Car.salon_info()
+# print(default_car)
+#
+# print(Car.salon_info())
+
+
+
+
+
+                                            #Homework A-18:
+# class BankAccount:
+#     def __init__(self, owner, balance):
+#         self.owner = owner
+#         self.balance = balance
+#
+#
+#     def deposit(self, amount):
+#         self.balance += amount
+#         print(f"{self.owner} deposited ${amount}")
+#
+#     def withdraw(self, amount):
+#         if amount > self.balance:
+#             print("You don't have enough money to withdraw")
+#         else:
+#             self.balance -= amount
+#             print(f"{self.owner} withdred ${amount}")
+#
+#     def show_balance(self):
+#         print(f"{self.owner} balance is ${self.balance}")
+#
+# account1 = BankAccount("Ali", 10000)
+# account2 = BankAccount("Bob", 1000)
+#
+# account1.deposit(1000)
+# account1.withdraw(600)
+# account1.show_balance()
+#
+# account2.deposit(300)
+# account2.withdraw(200)
+# account2.show_balance()
+
+
+
+
+                                        #Homework A-19:
+# numbers = [9, 35, 76, 28, 42, 73,]
+#
+# def min_value(nums):
+#     return min(nums)
+#
+# def max_value(nums):
+#     return max(nums)
+#
+# def average_value(nums):
+#     return sum(nums) / len(nums)
+#
+# def factorial(n):
+#     if n == 0 or n == 1:
+#         return 1
+#     else:
+#         return n * factorial(n - 1)
+#
+# print(numbers)
+# print(min_value(numbers))
+# print(max_value(numbers))
+# print(average_value(numbers))
+#
+# n = 5
+# print(factorial(n))
+
+
+
+
+
+                                        #Homework A-20:
+# import sqlite3
+# from pprint import pprint
+#
+#
+# def create_tables(connection):
+#     connection.execute("""DROP TABLE IF EXISTS users""")
+#     connection.execute("""
+#     CREATE TABLE IF NOT EXISTS users (
+#         id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         name TEXT NOT NULL,
+#         age INTEGER DEFAULT 0
+#     )
+#     """)
+#
+# def add_users(connection, name, age):
+#     connection.execute(
+#     """
+#     INSERT INTO users (name, age)
+#     VALUES (?, ?)
+#     """,
+#         (name,age))
+#     connection.commit()
+#
+# def show_users(connection):
+#     results = connection.execute("SELECT * FROM users")
+#     return results.fetchall()
+#
+#
+# def get_user(connection, user_id):
+#     results = connection.execute(
+#         "SELECT * FROM users WHERE id = ?",
+#         (user_id,)
+#     )
+#     return results.fetchall()
+#
+#
+# def delete_user(connection, users_id):
+#     connection.execute(
+#     """
+#     DELETE FROM users WHERE id = ?
+#     """,
+#     (users_id,))
+#     connection.commit()
+#
+#
+#
+# def update_user(connection, user_id, new_name, new_age):
+#     connection.execute(
+#         "UPDATE users SET name = ?, age = ? WHERE id = ?",
+#         (new_name, new_age, user_id)
+#     )
+#     connection.commit()
+#
+#
+# if __name__ == '__main__':
+#     conn = sqlite3.connect('users.db')
+#
+#     create_tables(conn)
+#
+#     add_users(conn, "Ali", 25)
+#     add_users(conn, "Bek", 30)
+#     add_users(conn, "Aibek", 22)
+#
+#     pprint(show_users(conn))  # вывести всех пользователей
+#
+#     print(get_user(conn, 2))  # получить пользователя с ID 2
+#
+#     update_user(conn, 2, "Bekzhan", 31)  # обновляем данные пользователя с ID 2
+#     print(get_user(conn, 2))
+#
+#     delete_user(conn, 1)  # удаляем пользователя с ID 1
+#     pprint(show_users(conn))  # снова выводим всех пользователей
+#
+#     conn.close()
+
+
+
