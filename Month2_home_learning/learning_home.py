@@ -5024,3 +5024,50 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
 
+
+
+                                        #Homework A-21:
+import sqlite3
+from pprint import pprint
+
+
+def create_connection(connection):
+    connection.execute("""DROP TABLE IF EXISTS users""")
+    connection.execute(
+    """
+    CREATE TABLE IF NOT users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+    )
+    """)
+
+
+    connection.execute("""
+    CREATE TABLE IF NOT EXISTS orders (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        product TEXT,
+        price INTEGER,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+    """)
+
+    # VIEW для аналитики
+    connection.execute("DROP VIEW IF EXISTS user_orders_stats")
+    connection.execute("""
+    CREATE VIEW user_orders_stats AS
+    SELECT users.name, COUNT(orders.id) AS total_orders
+    FROM users
+    LEFT JOIN orders ON users.id = orders.user_id
+    GROUP BY users.id
+    """)
+
+    connection.commit()
+
+
+
+def add_
+
+
+if __name__ == "__main__":
+    conn = sqlite3.connect('shop.db')
