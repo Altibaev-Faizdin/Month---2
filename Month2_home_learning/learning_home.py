@@ -5027,47 +5027,172 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
                                         #Homework A-21:
-import sqlite3
-from pprint import pprint
+# import sqlite3
+# from pprint import pprint
+#
+#
+# def create_connection(connection):
+#     connection.execute("""DROP TABLE IF EXISTS users""")
+#     connection.execute(
+#     """
+#     CREATE TABLE IF NOT users (
+#     id INTEGER PRIMARY KEY AUTOINCREMENT,
+#     name TEXT NOT NULL
+#     )
+#     """)
+#
+#
+#     connection.execute("""
+#     CREATE TABLE IF NOT EXISTS orders (
+#         id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         user_id INTEGER,
+#         product TEXT,
+#         price INTEGER,
+#         FOREIGN KEY (user_id) REFERENCES users(id)
+#     )
+#     """)
+#
+#     # VIEW для аналитики
+#     connection.execute("DROP VIEW IF EXISTS user_orders_stats")
+#     connection.execute("""
+#     CREATE VIEW user_orders_stats AS
+#     SELECT users.name, COUNT(orders.id) AS total_orders
+#     FROM users
+#     LEFT JOIN orders ON users.id = orders.user_id
+#     GROUP BY users.id
+#     """)
+#
+#     connection.commit()
+#
+#
+#
+# def add_
+#
+#
+# if __name__ == "__main__":
+#     conn = sqlite3.connect('shop.db')
 
 
-def create_connection(connection):
-    connection.execute("""DROP TABLE IF EXISTS users""")
-    connection.execute(
-    """
-    CREATE TABLE IF NOT users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL
-    )
-    """)
-
-
-    connection.execute("""
-    CREATE TABLE IF NOT EXISTS orders (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER,
-        product TEXT,
-        price INTEGER,
-        FOREIGN KEY (user_id) REFERENCES users(id)
-    )
-    """)
-
-    # VIEW для аналитики
-    connection.execute("DROP VIEW IF EXISTS user_orders_stats")
-    connection.execute("""
-    CREATE VIEW user_orders_stats AS
-    SELECT users.name, COUNT(orders.id) AS total_orders
-    FROM users
-    LEFT JOIN orders ON users.id = orders.user_id
-    GROUP BY users.id
-    """)
-
-    connection.commit()
 
 
 
-def add_
 
 
-if __name__ == "__main__":
-    conn = sqlite3.connect('shop.db')
+                                        #Homework A-22:
+# import flet as ft
+#
+# def anonymous(page: ft.Page):
+#     page.title = 'Anon page'
+#     page.padding = 25
+#     page.theme_mode = ft.ThemeMode.DARK
+#
+#
+#     text_anon = ft.Text(value='Anonymous', color=ft.Colors.WHITE)
+#
+#     name_anon = ft.TextField(label='Name')
+#     age_anon = ft.TextField(label='Age')
+#     city_anon = ft.TextField(label='City')
+#     ip_anon = ft.TextField(label='Enter IP...?')
+#
+#     result_text = ft.Text('')
+#
+#
+#     def show_profile(_):
+#         name = name_anon.value
+#         age = age_anon.value
+#         city = city_anon.value
+#         ip = ip_anon.value
+#
+#
+#         result_text.value = (f"Name: {name}, "
+#                              f"Age: {age}, "
+#                              f"City: {city},"
+#                              f" IP: {ip}")
+#         page.update()
+#
+#
+#     show_button = ft.ElevatedButton('Show Profile', on_click=show_profile)
+#
+#
+#     page.add(text_anon, name_anon, age_anon, city_anon, ip_anon, show_button, result_text)
+#
+# ft.app(target=anonymous)
+
+
+
+
+
+
+                                        #Homework 23:
+# import flet as ft
+#
+# def learning(page: ft.Page):
+#     page.title = 'Learning Page'
+#     page.theme_mode = ft.ThemeMode.DARK
+#
+#     text_learning = ft.Text(value=f'One text: {page.title}', color=ft.Colors.WHITE)
+#     text_simple = ft.TextField(label='Enter text...?')
+#
+#     def change_title(_):
+#         if text_simple.value.strip() == '':
+#             text_learning.value = '! Enter text?'
+#         else:
+#             page.title = text_simple.value
+#             text_learning.value = f"One text: {page.title}"
+#         page.update()
+#
+#     rename_button = ft.ElevatedButton('Edit text', on_click=change_title)
+#
+#
+#     page.add(
+#             text_learning,
+#             text_simple,
+#             rename_button
+#         )
+#
+# ft.app(target=learning)
+
+
+
+
+
+                                        #Homework A-24:
+# import flet as ft
+#
+# def home(page: ft.Page):
+#     page.title = 'Button mood'
+#     page.theme_mode = ft.ThemeMode.LIGHT
+#
+#     text_mood = ft.Text(value='My mood', color=ft.Colors.BLACK, size=20)
+#
+#     def set_happy(_):
+#         text_mood.value = 'My mood: 😄'
+#         page.update()
+#
+#     def set_simple(_):
+#         text_mood.value = 'My mood: 🙂'
+#         page.update()
+#
+#     def set_neutral(_):
+#         text_mood.value = 'My mood: 😐'
+#         page.update()
+#
+#     mood1_button = ft.IconButton(icon=ft.Icons.SENTIMENT_VERY_SATISFIED, on_click=set_happy)
+#     mood2_button = ft.IconButton(icon=ft.Icons.MOOD, on_click=set_simple)
+#     mood3_button = ft.IconButton(icon=ft.Icons.SENTIMENT_NEUTRAL, on_click=set_neutral)
+#
+#
+#     page.add(
+#         text_mood,
+#         mood1_button,
+#         mood2_button,
+#         mood3_button
+#     )
+#
+# ft.app(target=home)
+
+
+
+
+
+                                            #Homework A-25:
