@@ -1,6 +1,7 @@
 from ast import main
 from itertools import product
 from math import factorial
+from operator import truediv
 from tabnanny import process_tokens
 from tkinter.font import names  #Урок A-1: Волшебный мир Объектов. Создаём своих первых роботов!
 
@@ -5196,3 +5197,253 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 
 
                                             #Homework A-25:
+# import flet as ft
+# import datetime
+# import os
+#
+# HISTORY_FILE = "history.txt"
+#
+#
+# def main(page: ft.Page):
+#     page.title = 'My first Flet app'
+#     page.theme_mode = ft.ThemeMode.LIGHT
+#
+#     text_hello = ft.Text(value="Привет!", color=ft.Colors.BLUE)
+#
+#     greeting_history = []
+#
+#     history_text = ft.Text("История приветствий:")
+#
+#     if os.path.exists(HISTORY_FILE):
+#         with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+#             greeting_history.extend(
+#                 [line.strip() for line in f.readlines() if line.strip()]
+#             )
+#
+#         greeting_history[:] = greeting_history[-5:]
+#
+#         if greeting_history:
+#             history_text.value = "История приветствий:\n" + "\n".join(greeting_history)
+#
+#     def save_history():
+#         with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+#             for item in greeting_history:
+#                 f.write(item + "\n")
+#
+#     def on_button_click(e):
+#         name = name_input.value.strip()
+#         current_time = datetime.datetime.now().strftime("%Y:%m:%d - %H:%M:%S")
+#
+#         if name:
+#             record = f"{current_time} - Здравствуйте, {name}!"
+#             text_hello.value = record
+#             text_hello.color = ft.Colors.GREEN
+#             name_input.value = ""
+#
+#             greeting_history.append(record)
+#             greeting_history[:] = greeting_history[-5:]
+#
+#             save_history()
+#             history_text.value = "История приветствий:\n" + "\n".join(greeting_history)
+#         else:
+#             text_hello.value = "Пожалуйста, введите имя!"
+#             text_hello.color = ft.Colors.RED
+#
+#         page.update()
+#
+#     def toggle_theme(e):
+#         if page.theme_mode == ft.ThemeMode.LIGHT:
+#             page.theme_mode = ft.ThemeMode.DARK
+#             theme_button.icon = ft.Icons.LIGHT_MODE
+#         else:
+#             page.theme_mode = ft.ThemeMode.LIGHT
+#             theme_button.icon = ft.Icons.DARK_MODE
+#         page.update()
+#
+#     favorite_names = []
+#     favorite_text = ft.Text("Любимые имена:")
+#
+#     def add_to_favorites(e):
+#         if greeting_history:
+#             last = greeting_history[-1]
+#             name = last.split(", ")[1].replace("!", "")
+#
+#             if name not in favorite_names:
+#                 favorite_names.append(name)
+#                 favorite_text.value = "Любимые имена:\n" + "\n".join(favorite_names)
+#                 page.update()
+#
+#     def delete_last_greeting(e):
+#         if greeting_history:
+#             greeting_history.pop()
+#             save_history()
+#
+#             if greeting_history:
+#                 history_text.value = "История приветствий:\n" + "\n".join(greeting_history)
+#             else:
+#                 history_text.value = "История приветствий:"
+#         else:
+#             text_hello.value = "История пуста!"
+#             text_hello.color = ft.Colors.RED
+#
+#         page.update()
+#
+#     def sort_history(e):
+#         if greeting_history:
+#             greeting_history.sort(key=lambda x: x.split(", ")[1])
+#             save_history()
+#             history_text.value = "История приветствий:\n" + "\n".join(greeting_history)
+#         else:
+#             text_hello.value = "История пуста!"
+#             text_hello.color = ft.Colors.RED
+#
+#         page.update()
+#
+#     name_input = ft.TextField(
+#         label="Введите ваше имя",
+#         on_submit=on_button_click
+#     )
+#
+#     send_button = ft.ElevatedButton(
+#         "ОТПРАВИТЬ",
+#         icon=ft.Icons.SEND,
+#         on_click=on_button_click
+#     )
+#
+#     theme_button = ft.IconButton(
+#         icon=ft.Icons.DARK_MODE,
+#         tooltip="День / Ночь",
+#         on_click=toggle_theme
+#     )
+#
+#     delete_button = ft.ElevatedButton(
+#         "Удалить последнее",
+#         icon=ft.Icons.DELETE,
+#         on_click=delete_last_greeting
+#     )
+#
+#     sort_button = ft.ElevatedButton(
+#         "Сортировать по алфавиту",
+#         icon=ft.Icons.SORT_BY_ALPHA,
+#         on_click=sort_history
+#     )
+#
+#     favorite_button = ft.ElevatedButton(
+#         "Добавить в избранное",
+#         on_click=add_to_favorites
+#     )
+#
+#     main_buttons = ft.Row(
+#         controls=[send_button, theme_button],
+#         spacing=10
+#     )
+#
+#     history_buttons = ft.Row(
+#         controls=[delete_button, sort_button],
+#         spacing=10
+#     )
+#
+#     page.add(
+#         text_hello,
+#         name_input,
+#         main_buttons,
+#         history_text,
+#         history_buttons,
+#         favorite_button,
+#         favorite_text
+#     )
+#
+#
+# ft.app(target=main)
+
+
+
+
+
+                                            #Homework A-26
+# import flet as ft
+#
+# def hw(page: ft.Page,):
+#     page.title = 'Homewor A-26'
+#     page.theme_mode = ft.ThemeMode.LIGHT
+#     page.vertical_alignment = ft.MainAxisAlignment.START
+#     page.scroll = ft.ScrollMode.AUTO
+#
+#
+#     text_history = ft.Text(value='My name is Alinur')
+#
+#     text_name = ft.TextField(label='Name')
+#     text_age = ft.TextField(label='Age')
+#     text_city = ft.TextField(label='City')
+#
+#     use_card = ft.Column(visible=False)
+#
+#     def show_text(e):
+#         text_history.visible = True
+#         page.update()
+#
+#
+#     def hide_text(e):
+#         text_history.visible = False
+#         page.update()
+#
+#
+#     def save_profyle(e):
+#         name = text_name.value.strip()
+#         age = text_age.value.strip()
+#         city = text_city.value.strip()
+#
+#         if not name or not age or not city:
+#             page.snack_bar = ft.SnackBar(ft.Text('Please fill in all fields!'))
+#             page.snack_bar.open = True
+#             page.update()
+#             return
+#
+#         if not age.isdigit():
+#             page.snack_bar = ft.SnackBar(ft.Text('Age must be a number!'))
+#             page.snack_bar.open = True
+#             page.update()
+#             return
+#
+#         use_card.controls = [
+#             ft.Text(f'Name: {name}'),
+#             ft.Text(f'Age: {age}'),
+#             ft.Text(f'City: {city}'),
+#         ]
+#         use_card.visible = True
+#         page.update()
+#
+#
+#     def clear_fields(e):
+#         text_name.value = ''
+#         text_age.value = ''
+#         text_city.value = ''
+#         page.update()
+#
+#
+#     def delete_card(e):
+#         use_card.visible = True
+#         page.update()
+#
+#
+#     show_button = ft.ElevatedButton('Show', on_click=show_text)
+#     hide_button = ft.ElevatedButton('Hide', on_click=hide_text)
+#
+#     save_button = ft.ElevatedButton('Save', on_click=save_profyle)
+#     clear_button = ft.TextButton('Clear', on_click=clear_fields)
+#     delete_button = ft.IconButton(ft.Icons.DELETE, on_click=delete_card)
+#
+#
+#     page.add(
+#         text_history,
+#              ft.Row([show_button, hide_button]),
+#         text_name,
+#         text_age,
+#         text_city,
+#         ft.Row([save_button, clear_button, delete_button]),
+#         ft.Divider(),
+#         use_card
+#     )
+#
+#
+# ft.app(target=hw)
