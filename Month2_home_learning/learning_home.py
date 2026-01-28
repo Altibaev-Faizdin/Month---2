@@ -5447,3 +5447,169 @@ from tkinter.font import names  #Урок A-1: Волшебный мир Объ�
 #
 #
 # ft.app(target=hw)
+
+
+
+
+                                    #Homework A-27:
+# import flet as ft
+#
+# def hw27(page: ft.Page):
+#     page.title = 'Homework A-27'
+#     page.theme_mode = ft.ThemeMode.LIGHT
+#
+#     field = ft.TextField(label='Enter text...?')
+#
+#     hictory = []
+#
+#     list_col = ft.Column()
+#
+#     def add_text(e):
+#         text = field.value
+#
+#         if text == '':
+#             return
+#
+#         hictory.append(text)
+#
+#         list_col.controls.clear()
+#         for item in hictory:
+#             list_col.controls.append(ft.Text(item))
+#
+#         field.value = ''
+#         page.update()
+#
+#     add_button = ft.ElevatedButton('Add', on_click=add_text)
+#
+#     page.add(
+#         field,
+#         add_button,
+#         ft.Text("История:"),
+#         list_col
+#     )
+#
+# ft.app(target=hw27)
+
+
+
+                                        #Homework A-28:
+# import flet as ft
+#
+# def hw28(page: ft.Page):
+#     page.title = 'Homework A-28'
+#
+#     input_tx = ft.TextField(label='Enter text...?')
+#
+#     list_col = ft.Column()
+#
+#     def add_text(e):
+#         if input_tx.value == '':
+#             return
+#
+#         list_col.controls.append(ft.Text(input_tx.value))
+#
+#         input_tx.value = ''
+#         page.update()
+#
+#     add_button = ft.ElevatedButton('Add', on_click=add_text)
+#
+#     page.add(input_tx, list_col, add_button)
+#
+# ft.app(target=hw28)
+
+
+                                        #Homework A-29:
+# import flet as ft
+#
+# def hw29(page: ft.Page):
+#     page.title = 'Homework A-29'
+#
+#     input_tx = ft.TextField(label='Enter text...?')
+#
+#     history = []
+#
+#     list_col = ft.Column()
+#
+#     def add_tx(e):
+#         text = input_tx.value
+#         if text == '':
+#             return
+#
+#         history.append(text)
+#
+#         list_col.controls.clear()
+#         for index, item in enumerate(history):
+#             numbered_text = f'{index + 1}. {item}'
+#             list_col.controls.append(ft.Text(numbered_text))
+#
+#         input_tx.value = ""
+#         page.update()
+#
+#     add_button = ft.ElevatedButton('Add', on_click=add_tx)
+#
+#     page.add(input_tx,
+#              add_button,
+#              ft.Text("History:"),
+#              list_col
+# )
+#
+# ft.app(target=hw29)
+
+
+
+
+                                        #Homework A-30:
+import flet as ft
+
+def hw30(page: ft.Page):
+    page.title = 'Homework A-30'
+
+    input_tx = ft.TextField(label='Enter text...?')
+
+    history = []
+
+    list_col = ft.Column()
+
+    def refresh_list():
+        list_col.controls.clear()
+        for index, item in enumerate(history):
+
+            text_control = ft.Row([
+            ft.Text(f'{index + 1}. {item}'),
+            ft.IconButton(ft.Icons.DELETE, on_click=lambda e, i=index: delete_item(i))
+            ])
+            list_col.controls.append(text_control)
+        page.update()
+
+    def add_tx(e):
+        text = input_tx.value
+        if text == '':
+            return
+
+        history.append(text)
+        input_tx.value = ""
+        refresh_list()
+
+    add_button = ft.ElevatedButton('Add', on_click=add_tx)
+
+
+    def delete_item(index):
+        history.pop(index)
+        refresh_list()
+
+    def clear_history(e):
+        history.clear()
+        list_col.controls.clear()
+        page.update()
+
+    clear_button = ft.ElevatedButton('Clear History', on_click=clear_history)
+
+    buttons_row = ft.Row([add_button, clear_button], spacing=10)
+
+    page.add(input_tx,
+            buttons_row,
+             ft.Text("History:"),
+             list_col
+)
+
+ft.app(target=hw30)
